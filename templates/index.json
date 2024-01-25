@@ -29,7 +29,7 @@
           "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/slideshow.png",
-            "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/07a210a5331149c291c6b02effe76726.mp4",
+            "video": "",
             "image_position": "center center",
             "text_box_position": "middle-center",
             "subheading": "",
@@ -620,7 +620,7 @@
         "template--21291999854888__69ec9206-495b-4cb2-bc7e-2ca9ee92c8fc-button-1"
       ],
       "settings": {
-        "video": "shopify:\/\/files\/videos\/parte-1_Wrt2OJjk.mov",
+        "video": "",
         "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
         "text_box_position": "middle-center",
         "text_alignment": "center",

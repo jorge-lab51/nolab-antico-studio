@@ -96,7 +96,7 @@
           "settings": {
             "icon": "none",
             "heading": "Características técnicas",
-            "content": "<p>{{ product.metafields.custom.caracteristicas | metafield_tag }}<\/p>",
+            "content": "<p>Lorem ipsum dolor<\/p>",
             "page": "",
             "custom_liquid": "",
             "keep_open": false
