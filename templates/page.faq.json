@@ -1,0 +1,163 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "narrow": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "7b89157c-b6df-4eb6-bb1b-4132c0aad3f6": {
+          "type": "rich-text",
+          "settings": {
+            "title": "COMPRAS",
+            "text": ""
+          }
+        },
+        "question-0": {
+          "type": "question",
+          "settings": {
+            "title": "¿Despachan a todo Chile?",
+            "text": "<p>Si, despachamos a todo Chile por medio Empresa 99 Minutos.<\/p>"
+          }
+        },
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "title": "¿Cómo comprar en Antico Home?",
+            "text": "<p>¡Es muy fácil! Sólo debes agregar los productos que quieras a tu carrito, ingresar tus datos, dirección (recuerda seleccionar muy bien tu comuna) y finalmente, seleccionar el medio de pago que más te acomode.<\/p>"
+          }
+        },
+        "e5c201bf-9c46-488d-a904-ac40a9fb77fc": {
+          "type": "rich-text",
+          "settings": {
+            "title": "PAGOS",
+            "text": ""
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "title": "¿Es seguro comprar en Antico Home?",
+            "text": "<p>¡Totalmente! En Antico Home trabajamos con altos estándares de seguridad y toda la información ingresada en nuestro sitio se mantiene de forma estrictamente confidencial. Sólo te pedimos que ingreses la información necesaria para el pago y envío de tu compra.<\/p><p>Antico Home NO guarda la información de tu tarjeta de crédito ni de tu cuenta bancaria.<\/p>"
+          }
+        },
+        "question-3": {
+          "type": "question",
+          "settings": {
+            "title": "¿Qué medio de pago puedo usar?",
+            "text": "<p>Puedes pagar con tarjetas de crédito y débito emitidas en Chile y\/o transferencia electrónica a nuestra cuenta.<\/p>"
+          }
+        },
+        "question-4": {
+          "type": "question",
+          "settings": {
+            "title": "Seleccioné transferencia y no he recibido los datos",
+            "text": "<p>Recuerda revisar tu bandeja de entrada y spam, si no te han llegado, escríbenos al correo contacto@anticohome.cl indicando tu número de orden (ej: 12345) para que te los podamos enviar.<\/p>"
+          }
+        },
+        "question-5": {
+          "type": "question",
+          "settings": {
+            "title": "Han pasado más de 48 hrs. y no han aprobado mi pago",
+            "text": "<p>Recuerda que todos nuestros plazos son en días hábiles. Si compras con transferencia un día viernes en la noche o el fin de semana, revisaremos tu pago el día lunes a primera hora, ¡no te preocupes!<\/p>"
+          }
+        },
+        "4e0fc841-9429-4dd0-b525-e0fcccac96b3": {
+          "type": "rich-text",
+          "settings": {
+            "title": "DESPACHOS",
+            "text": ""
+          }
+        },
+        "9415203b-1c19-4870-ac30-03bfea1f552a": {
+          "type": "question",
+          "settings": {
+            "title": "Ya hice mi compra, ¿Cómo sé si está todo bien?",
+            "text": "<p>Una vez realices tu compra, te llegará un correo con la confirmación de tu pedido. En la parte superior aparecerá “Orden 12345” con ese número podrás identificar tu compra más adelante.<\/p>"
+          }
+        },
+        "930e2d88-2bf0-4648-9acc-7ccc075a3ce6": {
+          "type": "question",
+          "settings": {
+            "title": "¿Qué días despachamos?",
+            "text": "<p>Todos nuestros despachos son de LUNES a VIERNES de 08:00 a 22:00 horas.<\/p><p>Cualquier urgencia o atraso lo comunicaremos siempre a través de correo electrónico o teléfono.<\/p>"
+          }
+        },
+        "f5eac78f-4cec-44e7-aaa7-0e116bc2d80c": {
+          "type": "question",
+          "settings": {
+            "title": "Algunos días no estoy en mi casa o no puedo recibirlo, ¿Qué puedo hacer?",
+            "text": "<p>Como trabajamos con empresas de despacho externas, el horario de entrega siempre es de LUNES a VIERNES de 08:00 a 22:00 horas., por lo que te recomendamos que nos indiques una dirección donde haya una persona que pueda recibir por ti. Puede ser el conserje de tu edificio, algún amigo, vecino, familiar, etc.<\/p>"
+          }
+        },
+        "6efee4ab-b2dc-4286-b374-9ca97b7aaf48": {
+          "type": "question",
+          "settings": {
+            "title": "Recibí el correo confirmando el despacho, pero no ha llegado.",
+            "text": "<p>Cuando recibas el correo “Orden en tránsito” significa que tu pedido acaba de salir a reparto. Si estás en Santiago, puedes recibir tu compra dentro del mismo día o al día hábil siguiente. Si estás en regiones, la entrega puede tardar de 1 hasta 10 días hábiles en los lugares más extremos.<\/p>"
+          }
+        },
+        "2f3ee472-856c-4878-9365-163e67217b46": {
+          "type": "question",
+          "settings": {
+            "title": "Ya pasó el plazo de entrega de mi compra y no ha llegado",
+            "text": "<p>Escríbenos a nuestro correo: contacto@anticohome.cl indicando tu número de orden. Revisaremos lo antes posible qué pasó con tu compra y te contactaremos de vuelta.<\/p>"
+          }
+        },
+        "f9f6a949-1ab9-4ec7-8f94-fad58cb52e9e": {
+          "type": "rich-text",
+          "settings": {
+            "title": "CAMBIOS Y DEVOLUCIONES",
+            "text": ""
+          }
+        },
+        "1dc6e1cb-b809-47cb-b51a-7d23e01d524e": {
+          "type": "question",
+          "settings": {
+            "title": "¿Necesitas realizar un cambio o solicitar la devolución de tu compra?",
+            "text": "<p>Visita la página de políticas de <a href=\"\/pages\/cambios-y-devoluciones\" target=\"_blank\" title=\"Cambios y Devoluciones\">cambios y devoluciones<\/a> para revisar el procedimiento.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "7b89157c-b6df-4eb6-bb1b-4132c0aad3f6",
+        "question-0",
+        "question-1",
+        "e5c201bf-9c46-488d-a904-ac40a9fb77fc",
+        "question-2",
+        "question-3",
+        "question-4",
+        "question-5",
+        "4e0fc841-9429-4dd0-b525-e0fcccac96b3",
+        "9415203b-1c19-4870-ac30-03bfea1f552a",
+        "930e2d88-2bf0-4648-9acc-7ccc075a3ce6",
+        "f5eac78f-4cec-44e7-aaa7-0e116bc2d80c",
+        "6efee4ab-b2dc-4286-b374-9ca97b7aaf48",
+        "2f3ee472-856c-4878-9365-163e67217b46",
+        "f9f6a949-1ab9-4ec7-8f94-fad58cb52e9e",
+        "1dc6e1cb-b809-47cb-b51a-7d23e01d524e"
+      ],
+      "settings": {
+        "narrow": true,
+        "secondary_background": false,
+        "show_divider": false,
+        "heading": "",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "heading_tag": "h2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq"
+  ]
+}

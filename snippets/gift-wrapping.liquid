@@ -1,0 +1,363 @@
+<style>
+
+/* Regalos */
+.is-a-regalos {
+  background: #F0EFEC;
+  padding: 25px;
+  margin-bottom: 0;
+  overflow: auto;
+  width: 100%;
+  margin-left: 0;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  grid-gap: 3vw;
+}
+
+.is-a-regalos h3 {
+  font-size: 12px;
+  color: #000;
+  font-weight: 400;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.is-a-gift {
+  width: 100%;
+  border: 0px solid #f2f2f2;
+  padding: 0.5vw 0 1vw;
+}
+
+.is-a-gift .styled-checkbox+label:before {
+  background-color: #fff;
+}
+
+.is-a-gift .styled-checkbox:checked+label:after {
+  left: 10px
+}
+
+.is-a-gift p {
+  display: block;
+  overflow: visible;
+  padding-bottom: 0px;
+}
+
+.is-a-regalos div.mensaje {
+  padding-top: 0px;
+  padding-left: 0px;
+  font-size: 1em;
+  display: none;
+}
+
+.is-a-regalos div.mensaje.show {
+  display: block;
+}
+
+.is-a-regalos div.mensaje input,
+.is-a-regalos div.mensaje textarea {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  outline: none;
+  width: 100%;
+  height: 45px;
+  padding: 0 15px;
+  font-size: 0.75em;
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+
+.is-a-regalos div.mensaje textarea {
+  height: 120px;
+  padding: 15px 15px;
+  margin: 0 0 10px;
+}
+
+.is-a-regalos div.mensaje input::placeholder,
+.is-a-regalos div.mensaje textarea::placeholder {
+  font-family: var(--font);
+  font-size: 0.75em;
+  font-weight: 500;
+  color: #303030;
+}
+
+.is-a-regalos div.mensaje small {
+  font-size: var(--f10);
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.styled-checkbox + label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  font-size:12px;
+}
+
+.styled-checkbox + label small {
+  padding-left: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+  position: relative;
+}
+
+.styled-checkbox + label small span {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 0.5px solid #b2b2b2;
+  width: 400px;
+  padding: 1vw;
+  text-align: center;
+  z-index: 10;
+}
+
+.styled-checkbox + label small:hover span {
+  display: block;
+}
+
+.styled-checkbox + label small span::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-top: 0.5px solid #b2b2b2;
+  border-right: 0.5px solid #b2b2b2;
+  top: -6px;
+  left: calc(50% - 10px);
+  background: #fff;
+  transform: rotate(-45deg);
+}
+
+.styled-checkbox + label small span u {
+  text-decoration: none;
+  display: block;
+}
+
+.styled-checkbox + label small span u:first-child {
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 5px 0;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.styled-checkbox + label small span u:nth-child(2) {
+  line-height: 1.7em;
+}
+
+.styled-checkbox + label small span img {
+  width: 60%;
+  height: auto;
+  display: block;
+  margin: 5px auto 0;
+}
+
+.styled-checkbox + label::before {
+  content: "";
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  position: relative;
+  top: -3px;
+}
+
+.styled-checkbox:hover + label::before {
+  background: var(--color);
+}
+
+.styled-checkbox:focus + label::before {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+}
+
+.styled-checkbox:checked + label::before {
+  background: #fff;
+}
+
+.styled-checkbox:disabled + label {
+  color: #b8b8b8;
+  cursor: auto;
+}
+
+.styled-checkbox:disabled + label::before {
+  box-shadow: none;
+  background: #ddd;
+}
+
+.styled-checkbox:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  background: white;
+  width: 2px;
+  height: 2px;
+  box-shadow: 2px 0 0 #000, 4px 0 0 #000, 4px -2px 0 #000, 4px -4px 0 #000, 4px -6px 0 #000, 4px -8px 0 #000;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+</style>
+
+<div class="col col01">
+  <h3>{{ section.settings.regalos_title }}</h3>
+  <div class="productos">
+    {% capture itemEmpty %}
+      {% for item in section.settings.productos_regalos %}
+        {{ item.variants.first.id }}: 0,
+      {% endfor %}
+    {% endcapture %}
+    {% for item in section.settings.productos_regalos %}
+      <div
+        class="is-a-gift"
+        id="is-a-gift"
+        style="clear: left; margin: 0px 0 0px"
+        class="clearfix rte"
+      >
+        <p>
+          <input
+            type="hidden"
+            name="attributes[gift-wrapping{{ forloop.index }}]"
+            value=""
+          >
+          <input
+            class="styled-checkbox"
+            id="gift-wrapping{{ forloop.index }}"
+            type="checkbox"
+            name="attributes[gift-wrapping{{ forloop.index }}]"
+            value="yes"
+            {% for citem in cart.items %}
+              {% if citem.id == item.variants.first.id %}
+                checked="checked"
+              {% endif %}
+            {% endfor %}
+            style="float: none"
+          >
+          <label for="gift-wrapping{{ forloop.index }}" style="display:inline; padding-left: 5px; float: none;">
+            {{ item.title }} ({{ item.price | money }})
+          </label>
+        </p>
+      </div>
+      {% liquid
+        assign id = item.variants.first.id
+        assign gift_wraps_in_cart = 0
+        for citem in cart.items
+          if citem.id == id
+            assign gift_wraps_in_cart = citem.quantity
+          endif
+        endfor
+      %}
+      <style>
+        #updates_{{ item.variants.first.id }} { display: none; }
+      </style>
+      <script>
+        Shopify.Cart = Shopify.Cart || {};
+        Shopify.Cart.GiftWrap{{ forloop.index }} = {};
+        Shopify.Cart.GiftWrap{{ forloop.index }}.set = function() {
+          jQuery.ajax({
+            type: 'POST',
+            url: '/cart/update.js',
+            data: { updates: { {{ itemEmpty }} {{ item.variants.first.id }}: 1 }, attributes: { 'gift-wrapping{{ forloop.index }}': true } },
+            dataType: 'json',
+            success: function() { location.href = '/cart'; }
+          });
+        }
+
+        Shopify.Cart.GiftWrap{{ forloop.index }}.remove = function() {
+          jQuery.ajax({
+            type: 'POST',
+            url: '/cart/update.js',
+            data: { updates: { {{ item.variants.first.id }}: 0 }, attributes: { 'gift-wrapping{{ forloop.index }}': '' } },
+            dataType: 'json',
+            success: function() { location.href = '/cart'; }
+          });
+        }
+
+        {% if cart.items.size == 1 and gift_wraps_in_cart > 0 %}
+          // Si el carro no tiene otro producto aparte del gift wrapping
+          jQuery(function() {
+            Shopify.Cart.GiftWrap{{ forloop.index }}.remove();
+          });
+        {% elsif gift_wraps_in_cart == 1 %}
+        jQuery(function() {
+          $('#gift-wrapping{{ forloop.index }}').prop('checked', true);
+        });
+        {% elsif gift_wraps_in_cart > 1 %}
+          // Si hay más de un item del gift-wrapping
+          jQuery(function() {
+            Shopify.Cart.GiftWrap{{ forloop.index }}.set();
+          });
+        {% endif %}
+
+        jQuery(function() {
+          jQuery('[name="attributes\[gift-wrapping{{ forloop.index }}\]"]').change(function() {
+            if (jQuery(this).is(':checked')) {
+              Shopify.Cart.GiftWrap{{ forloop.index }}.set();
+            }
+            else {
+              Shopify.Cart.GiftWrap{{ forloop.index }}.remove();
+            }
+          });
+          if ($('input#gift-wrapping{{ forloop.index }}').is(':checked')) {
+            jQuery('div.mensaje').addClass('show');
+          }
+
+        });
+      </script>
+    {% endfor %}
+  </div>
+</div>
+<div class="col col02">
+  <div class="mensaje">
+    <h3>{{ section.settings.mensaje_title }}</h3>
+    <div class="field">
+      <input
+        id="gift-from"
+        text
+        name="attributes[gift-from]"
+        class="field__input"
+        value="{{ cart.attributes["gift-from"] }}"
+        aria-required="true"
+        placeholder="{{ section.settings.mensaje_de }}"
+      >
+
+    </div>
+    <div class="field">
+      <input
+        id="gift-from"
+        text
+        name="attributes[gift-to]"
+        class="field__input"
+        value="{{ cart.attributes["gift-to"] }}"
+        aria-required="true"
+        placeholder="{{ section.settings.mensaje_para }}"
+      >
+
+    </div>
+    <div class="field">
+      <textarea
+        maxlength="200"
+        placeholder="{{ section.settings.mensaje_mensaje }}"
+        name="attributes[gift-note]"
+        id="gift-note"
+        class="field__input"
+      >{{ cart.attributes.gift-note }}</textarea>
+
+    </div>
+  </div>
+</div>

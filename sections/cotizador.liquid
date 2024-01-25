@@ -1,0 +1,308 @@
+
+<script>
+  // Inicializar la lista de productos desde localStorage si existe, si no, usar un array vacío
+  var products = JSON.parse(localStorage.getItem('products')) || [];
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const cotizacionDrawer = document.getElementById('cotizacion-drawer');
+    const closeDrawerButton = document.querySelector('#cotizacion-drawer .drawer__close');
+    const drawerUnderlay = document.querySelector('span[data-drawer-cotizador-underlay]');
+    const navLinkCotizador = document.querySelector('.navlink--cotizador');
+    // const navLinkCotizadorMobile = document.querySelector('.navlink--cotizador-mobile');
+
+    closeDrawerButton.addEventListener('click', function() {
+      cotizacionDrawer.classList.remove('is-open');
+    });
+    drawerUnderlay.addEventListener('click', function() {
+      console.log('click');
+      cotizacionDrawer.classList.remove('is-open');
+    });
+    navLinkCotizador.addEventListener('click', function(e) {
+      e.preventDefault();
+      cotizacionDrawer.classList.add('is-open');
+    });
+    // navLinkCotizadorMobile.addEventListener('click', function(e) {
+    //   e.preventDefault();
+    //   cotizacionDrawer.classList.add('is-open');
+    // });
+
+    const formCotizar = document.querySelector('.form-cotizar');
+    const openFormCotizar = document.querySelector('.send-cotizacion');
+
+    openFormCotizar.addEventListener('click', function(e) {
+      e.preventDefault();
+      formCotizar.classList.add('show');
+    });
+  });
+
+  function obtenerVariant() {
+    const url = new URL(window.location.href);
+    const variant = url.searchParams.get('variant');
+    const productVariantIDInput = document.getElementById('productVariantID');
+    const productVariantInput = document.getElementById('productVariant');
+    const productPriceInput = document.getElementById('productPrice');
+    const productQuantityInput = document.getElementById('productQuantity');
+    const radioButtons = document.querySelectorAll('.radio__button input[type="radio"]');
+    const priceElement = document.querySelector('span[data-product-price]');
+    const popoutToggleTextElement = document.querySelector('span[data-popout-toggle-text]');
+    const quantityInput = document.querySelector('.quantity__input');
+  
+    if (productVariantIDInput) {
+      productVariantIDInput.value = variant !== null ? variant : 'default';
+    }
+  
+    if (productVariantInput) {
+      let selectedValue = 'default';
+      radioButtons.forEach(function(radio) {
+        if (radio.checked) {
+          selectedValue = radio.value;
+        }
+      });
+      productVariantInput.value = selectedValue;
+    }
+  
+    if (productPriceInput && priceElement) {
+      const priceText = priceElement.textContent || priceElement.innerText;
+      const priceNumber = priceText.replace('$', '').trim();
+      productPriceInput.value = priceNumber;
+    }
+  
+    if (productQuantityInput) {
+      if (quantityInput) {
+        productQuantityInput.value = quantityInput.value;
+      } else if (popoutToggleTextElement) {
+        const popoutToggleText = popoutToggleTextElement.textContent || popoutToggleTextElement.innerText;
+        productQuantityInput.value = popoutToggleText.trim();
+      }
+    }
+  }
+    
+  // Llamamos la función al cargar la página para obtener el valor inicial
+  obtenerVariant();
+  
+  // Añadimos un evento de click para elementos con la clase .radio__button label
+  document.querySelectorAll('.radio__button label').forEach(function(element) {
+    element.addEventListener('click', function() {
+      // Esperamos un momento para asegurarnos de que la URL ha cambiado
+      setTimeout(function() {
+        obtenerVariant();
+      }, 100);
+    });
+  });
+
+  // Listener para clicks en los elementos con la clase .select-popout__item
+  document.querySelectorAll('.select-popout__item').forEach(function(item, index, array) {
+    item.addEventListener('click', function() {
+      setTimeout(function() {
+        if (index === array.length - 1) {
+          const quantityInput = document.querySelector('.quantity__input');
+          if (quantityInput) {
+            quantityInput.addEventListener('change', function() {
+              document.getElementById('productQuantity').value = quantityInput.value;
+            });
+
+            const lastItemText = item.textContent.trim();
+            const lastItemValue = lastItemText.replace(' +', '');
+            document.getElementById('productQuantity').value = lastItemValue;
+          }
+        } else {
+          obtenerVariant();
+        }
+      }, 0);
+    });
+  });  
+
+  // Función para añadir un producto
+  function addProduct() {
+    // Obtener los valores de los campos de entrada
+    var proID = document.getElementById('productID').value;
+    var name = document.getElementById('productName').value;
+    var variant = document.getElementById('productVariant').value;
+    var variantID = document.getElementById('productVariantID').value;
+    var link = document.getElementById('productLink').value;
+    var image = document.getElementById('productImage').value;
+    var quantity = parseInt(document.getElementById('productQuantity').value);  // Asegúrate de que la cantidad sea un número
+    var price = document.getElementById('productPrice').value;
+  
+    console.log("precio", price)
+    // Verificar si los campos no están vacíos
+    if (name && price) {
+        // Verificar si el producto ya existe en la lista
+        var existingProductIndex = products.findIndex(product => product.variantid === variantID);
+        if (existingProductIndex !== -1) {
+            // Si el producto ya existe, actualiza la cantidad
+            products[existingProductIndex].quantity = (parseInt(products[existingProductIndex].quantity) + quantity).toString();
+        } else {
+            // Si el producto no existe, crea un nuevo objeto de producto
+            var newProduct = {
+                id: products.length + 1,
+                proid: proID,
+                name: name,
+                variant: variant,
+                variantid: variantID,
+                link: link,
+                image: image,
+                quantity: quantity.toString(),
+                price: price
+            };
+            // Añadir el nuevo producto a la lista de productos
+            products.push(newProduct);
+        }
+        // Guardar la lista de productos actualizada en localStorage
+        localStorage.setItem('products', JSON.stringify(products));
+      
+        // Llamar a una función para actualizar la lista de productos en el HTML
+        displayProducts();
+        displayProductList();
+        document.getElementById('cotizacion-drawer').classList.add('is-open');
+    } else {
+        alert('Por favor, introduzca el nombre y el precio del producto.');
+    }
+  }
+
+  // Función para limpiar todos los productos
+  function clearAll() {
+    products = [];
+    localStorage.setItem('products', JSON.stringify(products));
+    displayProducts();
+    displayTotal();
+    displayTotalPrice();
+    displayProductList();
+    return false;
+  }
+
+  // Función para eliminar un producto específico
+  function deleteProduct(id) {
+    products = products.filter(product => product.id !== id);
+    localStorage.setItem('products', JSON.stringify(products));
+    displayProducts();
+    displayTotal();
+    displayTotalPrice();
+    displayProductList();
+  }
+
+  // Función para mostrar la lista de productos en el HTML
+  function displayProducts() {
+    var productsList = document.getElementById('products-list');
+    productsList.innerHTML = '';  // Limpiar la lista existente
+    
+    products.forEach(function(product) {
+      var productItem = document.createElement('li');
+      productItem.textContent = product.name + ':' + product.price;
+      productItem.innerHTML = `
+          <div class="cart__item cart__item--no-border" data-item="${product.proid}" data-item-index="${product.id}" data-item-title="${product.name}" data-animation="cart-items-fade" data-animation-duration="500" data-animation-delay="0">
+            
+          
+            <div class="cart__item__content">
+              <div class="cart__item__content-inner">
+                <h4 class="cart__item__title">
+                  <a href="${product.link}">${product.name}</a>
+                </h4>
+                <quantity-counter class="cart__quantity-counter">
+                  <div class="cart__quantity">
+                    Cantidad: ${product.quantity}
+                  </div>
+                  <a class="cart__item__remove" href="" onclick="deleteProduct(${product.id}); return false;" data-item-remove="" title="Quitar">X Quitar</a>
+                </quantity-counter>
+              </div>
+              <div class="cart__item__image">
+              <a href="${product.link}?variant=${product.variantid}" aria-label="${product.name}">
+                <div class="lazy-image">
+                    <img src="${product.image}" alt="${product.name}" srcset="${product.image}" width="180" height="270" loading="eager" sizes="90px" aspect_ratio="1" class="" fetchpriority="high">
+                </div>
+              </a>
+            </div>
+            </div>
+          </div>
+      `;
+      
+      // Añadir un botón de eliminar a cada producto
+      var deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Eliminar';
+      deleteButton.onclick = function() {
+        deleteProduct(product.id);
+      };
+      
+      //productItem.appendChild(deleteButton);
+      productsList.appendChild(productItem);
+    });
+
+    displayTotal();
+    displayTotalPrice();
+  }
+
+  // Función para mostrar el total de productos en el HTML
+  function displayTotal() {
+    // Suma las cantidades de todos los productos
+    var totalQuantity = products.reduce(function(sum, product) {
+        return sum + parseInt(product.quantity);
+    }, 0);  // Inicia la suma en 0
+
+    console.log("dlksfdl", totalQuantity)
+    
+    var totalDisplay = document.getElementById('total-display');
+    totalDisplay.textContent = totalQuantity;
+ 
+    console.log("funciona ?")
+    var cotizadorFooter = document.querySelector('#cotizacion-drawer .cart__foot__inner');
+
+    if (totalQuantity > 0) {
+      cotizadorFooter.style.display = 'block';
+      totalDisplay.style.display = 'inline-flex';  // Mostrar el elemento si hay items
+      totalDisplay.textContent = totalQuantity;
+
+    } else {
+      cotizadorFooter.style.display = 'none';
+      totalDisplay.style.display = 'none';  // Esconder el elemento si no hay items
+
+    }
+  }
+
+
+  function calculateTotal() {
+    // Suma los productos de precio y cantidad de todos los productos
+    var total = products.reduce(function(sum, product) {
+        var precioNumerico = parseFloat(product.price.replace('.', ''));
+        var productTotal = precioNumerico * parseInt(product.quantity);
+        console.log("total", precioNumerico)
+        return sum + productTotal;
+    }, 0);  // Inicia la suma en 0
+
+    return total;
+  }
+
+
+  function displayTotalPrice() {
+    var totalPriceDisplay = document.getElementById('total-price-display');
+    var totalPrice = calculateTotal();
+    var formattedTotalPrice = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(totalPrice);
+    totalPriceDisplay.textContent = formattedTotalPrice;
+  }
+
+  // Función para mostrar la lista de productos en el textarea
+  function displayProductList() {
+    var productsListTextarea = document.getElementById('ContactFormMessage');
+    var textContent = '';  // Inicializar una variable para almacenar el texto generado
+    
+    products.forEach(function(product) {
+        // Agregar la información del producto al texto generado
+        textContent += `
+- Nombre: ${product.name}
+- Cantidad: ${product.quantity}
+
+        `;  // Agregar una línea en blanco entre los productos
+    });
+    
+    // Establecer el contenido del textarea con el texto generado
+    productsListTextarea.value = textContent;
+  }
+
+  // Llamar a displayProducts y displayTotal en la carga inicial para mostrar cualquier producto ya en localStorage y el total de productos
+  window.onload = function() {
+    displayProducts();
+    displayTotal();
+    displayTotalPrice();
+    displayProductList();
+  };
+  
+</script>

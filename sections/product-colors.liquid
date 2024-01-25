@@ -1,0 +1,91 @@
+<style>
+  {%- if section.blocks.size > 0 -%}
+    .product-form__input.option-color {
+      display: flex;
+    }
+  {%- endif -%}
+  {% for block in section.blocks %}
+    .product-form__input input[type=radio][data-option-value="{{ block.settings.heading }}"]+.color__swatch .color__swatch-dot:after {
+      /* padding: 1rem 0rem; */
+      background-color: {{ block.settings.color }};
+      /* width: 40px;
+      height: 40px;
+      position: relative; */
+    }
+
+    .product-form__input.option-color input[type=radio] + label[data-name="{{ block.settings.heading }}"] span.value {
+      display: inline-block;
+      position: relative;
+      bottom: -260%;
+      left: 0;
+      z-index: 2;
+      transform: translateX(0%);
+      background: #ffffff;
+      padding: 5px;
+      border: 1px solid #cccccc;
+      font-size: 1.2rem;
+      transition: all var(--duration-short) ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .product-form__input.option-color input[type=radio] + label[data-name="{{ block.settings.heading }}"]:hover span.value {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .product-form__input.option-color input[type=radio] + label[data-name="{{ block.settings.heading }}"] span.value:before {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      position: absolute;
+      transform: rotate(45deg);
+      top: -5px;
+      left: 11px;
+      border: 0;
+      border-top: 1px solid #cccccc;
+      border-left: 1px solid #cccccc;
+    }
+  {% endfor %}
+</style>
+{% schema %}
+{
+  "name": "🧪 Product Colors", 
+  "class": "product-section",
+  "blocks": [
+    {
+      "type": "color",
+      "name": "Color",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Color Name",
+          "default": "Negro"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Hexadecimal Color Code",
+          "default": "#000000"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "🧪 Product Colors",
+      "blocks": [
+        {
+          "type": "color"
+        },
+        {
+          "type": "color"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

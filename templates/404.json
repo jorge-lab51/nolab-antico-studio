@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/404.png",
+        "title": "Error 404",
+        "text": "<p>No se encontro la pagina<\/p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

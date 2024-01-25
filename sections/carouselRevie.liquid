@@ -1,0 +1,697 @@
+{%- liquid 
+  if shop.metafields.revie.reviewShopProductList or product.metafields.revie.reviewProductList 
+   assign reviewCount = 0
+   assign stars = 0
+    if section.settings.from == "1" 
+      assign list = shop.metafields.revie.reviewShopProductList 
+      assign reviewCount = shop.metafields.revie.reviewShopData.reviewCount
+      assign stars = shop.metafields.revie.reviewShopData.reviewAverageValue
+    else 
+      assign list = product.metafields.revie.reviewProductList
+      assign reviewCount = product.metafields.revie.reviewData.reviewCount
+      assign stars = product.metafields.revie.reviewData.reviewAverageValue
+    endif 
+  endif 
+  assign countTotal = 0
+  if list and list.size > 0 
+  for element in list
+    assign image = "" 
+    if section.settings.image == "1" or section.settings.image == "3" 
+     for item in element.product.images limit: 1 
+      assign image = item.src 
+      if image contains 'cdn.shopify.com'
+        if image contains '?'
+          assign image = image | append: '&width=500'
+        else
+          assign image = image | append: '?width=500'
+        endif
+      endif
+      endfor
+    endif 
+    if section.settings.image == "2" or section.settings.image == "3" 
+      for item in element.images limit: 1  
+        assign image = item.src 
+      endfor 
+    endif
+    if countTotal < section.settings.max_reviews and element.comment and element.comment != "" and image != "" and element.comment.size > 5
+      assign countTotal = countTotal | plus: 1
+    endif 
+  endfor
+ endif -%}
+  {% if countTotal > 0 %}
+  <div class="section-{{ section.id }}-padding sectionRevieWidget3">
+  <div id="content-rl-w"></div>
+    <div class="scrolly">
+      <h2 class="topT">{%- liquid
+      assign title = section.settings.title
+      if title contains '{star}' 
+        assign stars = '<div title="' | append: stars | append: ' Stars"><div id="revieStarW3"><i data-star="' | append: stars | append: '"></i></div></div>'
+        assign title = title | replace: '{star}', stars
+      endif 
+      if title contains '{count}' 
+        assign count = '<div>' | append: reviewCount | append: '</div>'
+        assign title = title | replace: '{count}', count
+      endif 
+      echo title
+      -%}</h2>
+      <button id="leftRevie">&#10094;</button>
+      <button id="rightRevie">&#10095;</button>
+      <ul id="revieListCarousel" class="carouselPre">
+       {%- liquid 
+        if section.settings.format == "5" or section.settings.format == "6" or section.settings.format == "7"  
+        assign count = 0 
+        for element in list
+          assign image = "" 
+          if section.settings.image == "1" or section.settings.image == "3"  
+            for item in element.product.images limit: 1  
+              assign image = item.src  
+              if image contains 'cdn.shopify.com'
+                if image contains '?'
+                  assign image = image | append: '&width=500'
+                else
+                  assign image = image | append: '?width=500'
+                endif
+              endif
+            endfor
+          endif 
+          if section.settings.image == "2" or section.settings.image == "3"
+            for item in element.images limit: 1  
+              assign image = item.src  
+            endfor 
+          endif
+          assign returnText = ""
+          if count < section.settings.max_reviews and element.comment and element.comment != "" and image != "" and element.comment.size > 5 
+            assign count = count | plus: 1 
+
+            assign returnText = '<li class="bgImg itemsC format' | append: section.settings.format | append: '" style="background-image:'
+            if section.settings.format == "5" 
+              assign returnText = returnText | append: 'linear-gradient(to right, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)),'
+            endif
+            assign returnText = returnText | append: "url('" | append: image | append: "');" | append: '" onclick="clickreviewMys(' | append: "'" | append: element.product.handle | append: "')" | append: '">'
+            assign returnText = returnText | append: '<div class="text-mys">'
+            if section.settings.format == "5" 
+              assign returnText = returnText | append: '<div class="quot">“</div>'
+            endif
+            assign returnText = returnText | append: '<div class="txtStar">'
+            assign returnText = returnText | append: '<div class="leftTxtDetMys"><div id="revieStarW3"><i data-star="' | append: element.stars | append: '"></i></div></div>'
+            if section.settings.name != "3" 
+              assign returnText = returnText | append: element.customer.firstName 
+            endif
+            assign returnText = returnText | append: '</div>'
+            if section.settings.format == "5" 
+              assign returnText = returnText | append: '<p>' | append: element.comment | append: '</p>'
+            endif
+            assign returnText = returnText | append: '</li>'
+          endif
+          echo returnText
+        endfor
+      endif
+          -%}
+  {%- liquid 
+    if section.settings.format == "2" or section.settings.format == "1" or section.settings.format == "4" or section.settings.format == "3" 
+      assign count = 0 
+      for element in list
+        assign image = ""
+        if section.settings.image == "1" or section.settings.image == "3" 
+          for item in element.product.images limit: 1 
+            assign image = item.src 
+            if image contains 'cdn.shopify.com'
+              if image contains '?'
+                assign image = image | append: '&width=500'
+              else
+                assign image = image | append: '?width=500'
+              endif
+            endif
+          endfor
+        endif
+        if section.settings.image == "2" or section.settings.image == "3" 
+          for item in element.images limit: 1 
+            assign image = item.src 
+          endfor 
+        endif 
+        if count < section.settings.max_reviews and element.comment and element.comment != "" and image != "" and element.comment.size > 5 
+          assign comment = element.comment 
+          if element.comment.size > 100 
+            assign comment = comment | truncate: 90 
+          endif 
+          assign count = count | plus: 1
+          assign returnText = '<li class="itemsC links format' | append: section.settings.format | append: '" onclick="clickreview(' | append: "'" | append: element.product.handle | append: "'" | append: ')">'
+          if section.settings.format == "2"
+            assign returnText = returnText | append: '<div class="bgImg" style="background-image: url(' | append: "'" | append: image | append: "'" | append: ');"></div>'
+          endif 
+          assign returnText = returnText | append: '<div class="contents">'
+          if section.settings.format == "3"
+            assign returnText = returnText | append: '<div class="leftTxtDet"><div id="revieStarW3"><i data-star="' | append: element.stars | append: '"></i></div></div>'
+          endif
+          assign returnText = returnText | append: '<div class="textDet">'
+          if section.settings.format != "3"
+            assign returnText = returnText | append: '<div class="leftTxtDet"><div id="revieStarW3"><i data-star="' | append: element.stars | append: '"></i></div></div>'
+          endif
+          assign returnText = returnText | append: '<p><b>' | append: element.customer.firstName 
+          if section.settings.name == "1" and section.settings.format != "4" 
+            assign returnText = returnText | append: ':'
+          endif 
+          assign returnText = returnText | append: '</b>' 
+          if section.settings.format != "4"
+            assign returnText = returnText | append: comment
+          endif
+          assign returnText = returnText | append: '</p></div></div>'
+          if section.settings.format == "1" or section.settings.format == "4"
+            assign returnText = returnText | append: '<div class="bgImg"><img loading="lazy" onError="this.onerror=null;this.src=' | append: "'https://revie.triciclogo.com/images/sin-fotos.png'" | append: ';" src="' | append: image | append: '" alt="image" srcset=""/>'
+            if section.settings.format == "4" 
+              assign returnText = returnText | append: element.comment
+            endif
+            assign returnText = returnText | append: '</div>'
+          endif 
+          assign returnText = returnText | append: '</li>'
+          echo returnText
+        endif
+      endfor
+    endif -%}
+      </ul>
+    </div>
+  </div> 
+  <script>
+    var outtester = document.getElementsByClassName('scrolly');
+    for(var i = 0; i < outtester.length; i++){
+    scrollification('scrolly', setyup = {
+        i: i,
+        scrollCont: '.carouselPre', 
+        itemsScroll: '.itemsC',
+        customButtons: true, 
+        butLeft: '#leftRevie', 
+        butRight: '#rightRevie'})
+    }
+    function scrollification(mainConter ,setyup = {i, scrollcont, itemsScroll, customButtons, butLeft, butRight}){
+      if(setyup.i == null){
+          out = document.getElementsByClassName(mainConter)[0];
+      }else{
+          out = document.getElementsByClassName(mainConter)[setyup.i];
+      }
+      if(setyup.customButtons == true){
+          l = out.querySelector(setyup.butLeft);
+          r = out.querySelector(setyup.butRight);
+      }
+    var out,
+    a = out.querySelector(setyup.scrollCont),l, r,
+    q =  out.querySelectorAll(setyup.itemsScroll);
+    
+    l.addEventListener("click", getBackRevie);
+    r.addEventListener("click", getNextRevie);
+    function getNextRevie(){
+        for(var i = 0; i < q.length; i++){
+            if(q[i].getBoundingClientRect().left <= a.getBoundingClientRect().left + 50){
+                var index = q[i].offsetWidth;
+                a.scrollLeft += index;
+            }
+        }
+    }
+    function getBackRevie(){
+      for(var i = 1; i < q.length; i++){
+        if(q[i].getBoundingClientRect().left < a.getBoundingClientRect().left + 50){
+            var index = q[i - 1].offsetWidth;
+            a.scrollLeft -= index;
+        }}
+    } 
+  }
+  function clickreview(link){
+      if (link != null && link != '' && link != 'null'){
+        window.location = '/products/'+link+'?utm_source=revie&utm_medium=revie_carousel&utm_campaign=revie';
+      }
+  }
+  </script>
+  <style>
+  :root {
+    --grid-column-gap: 20px;
+    --carouselPreHeight: 40rem;
+    --elemtForColumn: {% if section.settings.format == "6" or section.settings.format == "7" %}{{ section.settings.width_elements | plus: 1 }}{% else %}{{ section.settings.width_elements | plus: 1 }}{% endif %}};
+  }
+  .links{cursor: pointer}
+  .itemsC{position: relative;}
+  .scrolly{overflow: hidden;}
+  .scrolly{position:relative}
+  
+  .carouselPre li{
+      scroll-snap-align: start;width: 100%;height: 100%;
+      background-color: {{ section.settings.back_color }};
+      list-style: none;border-radius: 6px;overflow: hidden;box-shadow: 0 7px 12px -4px rgba(0,0,0,.22);
+    {% if section.settings.format == "1" %}aspect-ratio: 1/1;{% endif %}
+  }
+  .carouselPre li.links:hover{box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;}
+  .carouselPre{
+      grid-auto-flow: column;display: grid;grid-auto-columns: calc((100% - 3 * var(--grid-column-gap))/ var(--elemtForColumn));grid-column-gap: var(--grid-column-gap);scroll-snap-type: x mandatory;overflow-x: scroll;overflow-y: hidden;list-style: none;scroll-behavior: smooth;
+      padding: 10px 10px;
+  }
+  
+  .sectionRevieWidget3{max-width: {{ section.settings.max_width }}px;padding: {{ section.settings.content_padding }}px;margin: 0 auto;}  
+  {% if section.settings.format == "5" or section.settings.format == "6" or section.settings.format == "7" %} 
+  .txtStar{display: flex;justify-content: flex-start;align-items: center;gap: 10px;}
+  #revieListCarousel .quot{
+    font-size: {{ section.settings.size_text | plus: 20 }}px;
+    line-height: {{ section.settings.size_text | plus: 20 }}px;
+    font-family: "Times New Roman"!important;margin-bottom: 10px;
+  }
+  #revieListCarousel li p{
+    font-weight: 100;
+    font-size: {{ section.settings.size_text }}px;
+    line-height: {{ section.settings.size_text | plus: 6 }}px;
+    margin: 2rem 0px;
+  }
+  #revieListCarousel li.bgImg{background-repeat: no-repeat;background-position: center;background-size: cover;}
+  .itemsC{position:relative;padding:20px;cursor:pointer}.carouselPre li .text-mys{width:100%;height:100%;color:#fff;display:flex;flex-direction:column;justify-content:flex-start}.carouselPre li .text-mys a{flex:2;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}.carouselPre li .text-mys a:visited{color:#fff}.carouselPre li img{width:100%;height:100%;object-fit:cover}.carouselPre li img{width:30%;height:auto;border-radius:2px;margin:5px}
+  {% endif %}
+  {% if section.settings.format == "2" or section.settings.format == "1" or section.settings.format == "4" or section.settings.format == "3" %}
+  #title{margin: 10px 10px 10px 0;font-size: 34px;font-weight: 600;}
+  .itemsC .textDet{
+      {% if section.settings.format == "1" %}
+      position: absolute;
+      height: calc({{ section.settings.size_text | plus: 5 }}px * 5);
+      {% endif %} 
+      bottom: 0;
+      {% if section.settings.format != "4" and section.settings.format != "1" %}
+      height: {{ section.settings.size_text | plus: 5 | times: 3 | plus: 24 }}px;
+      {% endif %} 
+      width: 100%;
+      display: flex;
+      color: {{ section.settings.text_color }};
+      background: {{ section.settings.back_color }};
+      opacity: 0.8;
+  }
+  .contents{color: white;}
+  .itemsC .contents p{    
+      -webkit-line-clamp: 3;
+      text-align: left;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      font-size: {{ section.settings.size_text }}px;
+      line-height: {{ section.settings.size_text | plus: 8 }}px;
+      font-weight: 400;
+      width: 100%!important;
+      {% if section.settings.format == "1" %}
+      margin: 2rem 1rem 1rem 1rem!important;
+      {% else %}
+      margin: 2rem 1rem 1rem 1rem!important;
+      {% endif %}
+      font-style: normal;
+      font-weight: 500;
+      font-family: sans-serif;
+  }
+    {% if section.settings.name == "2" %}
+      .itemsC .contents p b{
+        display:block!important;
+      }
+    {% endif %}
+    {% if section.settings.name == "3" %}
+      .itemsC .contents p b{
+        display:none!important;
+      }
+    {% endif %}
+  .leftTxtDet{
+      {% if section.settings.format != "3" and section.settings.format != "4" %}
+      position: absolute;
+      {% endif %} 
+      text-align: center;
+      width: {{ section.settings.size | times: 5 | plus: 8 }}px;
+      background: #ffffff;
+      font-size: {{ section.settings.size }}px;
+      {% if section.settings.format != "3" and section.settings.format != "4" %}
+      left: calc(50% - {{ section.settings.size | times: 5 | plus: 8 | divided_by: 2 }}px);
+      border: 1px solid {{ section.settings.star_color }};
+      margin: auto;
+      border-radius: 6px;
+      {% endif %}
+      {% if section.settings.format == "3" or section.settings.format == "4" %}
+      margin: 10px 0px;
+      {% endif %}
+      z-index: 2;
+      {% if section.settings.format == "1" %}
+      margin-top:calc({{ section.settings.size | plus: 8 }}px / -2);
+      line-height: {{ section.settings.size | plus: 8 }}px;
+      {% else %}
+      bottom: {{ section.settings.size_text | plus: 5 | times: 3 | plus: 9 }}px;
+      {% endif %}
+  }
+  .carouselPre li .bgImg{width:100%;{% if section.settings.format != "1" %}aspect-ratio: 1/1;{% endif %}
+    {% if section.settings.format == "2" %}
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      display: block!important;
+      {% endif %} }
+  .carouselPre li img{width:100%;height:100%;object-fit:cover}
+  {% if section.settings.format == "4" %}
+  .carouselPre li img{width: 30%;height: auto;border-radius: 2px;margin: 5px;}
+  .carouselPre li .bgImg{display: flex;height: auto;    align-items: flex-start;}
+  {% endif %}  
+  {% endif %} 
+  #leftRevie,#rightRevie{background-color:rgba(255,255,255,.9);outline:none;border:transparent;border-radius:100%;display:flex;align-items:center;justify-content:center;width:3rem;height:3rem;position:absolute;top:50%;transform:translate(0,-60%);cursor:pointer;z-index:2;box-shadow:0 12px 24px #000;opacity: 0.2;}
+  #leftRevie:hover,#rightRevie:hover{opacity: 1;}
+  #leftRevie{left:0}
+  #rightRevie{right:0}
+  @media only screen and (max-width:1350px) {
+  .carouselPre{grid-auto-columns:calc((100% - 2 * var(--grid-column-gap))/ (var(--elemtForColumn) - 1));}
+  }
+    @media only screen and (max-width:1050px) {
+  .carouselPre{grid-auto-columns:calc((100% - 2 * var(--grid-column-gap))/ (var(--elemtForColumn) - 1));}
+  }
+  @media only screen and (max-width:890px) {
+  .carouselPre{grid-auto-columns:calc((100% - 1 * var(--grid-column-gap))/ (var(--elemtForColumn) - 1));}
+  }
+  @media only screen and (max-width:550px) {
+  .carouselPre{grid-auto-columns:calc((100%));height:auto; padding:0px}
+  }
+  ::-webkit-scrollbar{width:15px;height:15px;border-left:#ededed solid 1px;background-color:#fcfcfc;border-top:#ededed solid 1px}
+  ::-webkit-scrollbar-thumb:hover{cursor:pointer;background:#c7c7c7;width:15px;background-clip:content-box;border:4px solid transparent;border-radius:10px}
+  ::-webkit-scrollbar-button{display:none}
+  ::-webkit-scrollbar-thumb{background:#dbdbdb;background-clip:content-box;border:4px solid transparent;border-radius:10px}
+    [data-star] {
+    text-align:left;
+    font-style:normal;
+    display:inline-block;
+    position: relative;
+    unicode-bidi: bidi-override;font-family: sans-serif;
+  }
+  [data-star]::before { 
+    display:block;
+    content: '☆☆☆☆☆';
+    color: {{ section.settings.star_color }};
+  }
+  [data-star]::after {
+    white-space:nowrap;
+    position:absolute;
+    top:0;
+    left:0;
+    content: '★★★★★';
+    width: 0;
+    color: {{ section.settings.star_color }};
+    overflow:hidden;
+    height:100%;
+  }
+  #revieStarW3 span{padding-left: 10px;line-height: 48px;}
+  #revieStarW3 [data-star^=".1"]::after,#revieStarW3 [data-star^="0.1"]::after{width:2%}#revieStarW3 [data-star^=".2"]::after,#revieStarW3 [data-star^="0.2"]::after{width:4%}#revieStarW3 [data-star^=".3"]::after,#revieStarW3 [data-star^="0.3"]::after{width:6%}#revieStarW3 [data-star^=".4"]::after,#revieStarW3 [data-star^="0.4"]::after{width:8%}#revieStarW3 [data-star^=".5"]::after,#revieStarW3 [data-star^="0.5"]::after{width:10%}#revieStarW3 [data-star^=".6"]::after,#revieStarW3 [data-star^="0.6"]::after{width:12%}#revieStarW3 [data-star^=".7"]::after,#revieStarW3 [data-star^="0.7"]::after{width:14%}#revieStarW3 [data-star^=".8"]::after,#revieStarW3 [data-star^="0.8"]::after{width:16%}#revieStarW3 [data-star^=".9"]::after,#revieStarW3 [data-star^="0.9"]::after{width:18%}#revieStarW3 [data-star^="1"]::after{width:20%}#revieStarW3 [data-star^="1.1"]::after{width:22%}#revieStarW3 [data-star^="1.2"]::after{width:24%}#revieStarW3 [data-star^="1.3"]::after{width:26%}#revieStarW3 [data-star^="1.4"]::after{width:28%}#revieStarW3 [data-star^="1.5"]::after{width:30%}#revieStarW3 [data-star^="1.6"]::after{width:32%}#revieStarW3 [data-star^="1.7"]::after{width:34%}#revieStarW3 [data-star^="1.8"]::after{width:36%}#revieStarW3 [data-star^="1.9"]::after{width:38%}#revieStarW3 [data-star^="2"]::after{width:40%}#revieStarW3 [data-star^="2.1"]::after{width:42%}#revieStarW3 [data-star^="2.2"]::after{width:44%}#revieStarW3 [data-star^="2.3"]::after{width:46%}#revieStarW3 [data-star^="2.4"]::after{width:48%}#revieStarW3 [data-star^="2.5"]::after{width:50%}#revieStarW3 [data-star^="2.6"]::after{width:52%}#revieStarW3 [data-star^="2.7"]::after{width:54%}#revieStarW3 [data-star^="2.8"]::after{width:56%}#revieStarW3 [data-star^="2.9"]::after{width:58%}#revieStarW3 [data-star^="3"]::after{width:60%}#revieStarW3 [data-star^="3.1"]::after{width:62%}#revieStarW3 [data-star^="3.2"]::after{width:64%}#revieStarW3 [data-star^="3.3"]::after{width:66%}#revieStarW3 [data-star^="3.4"]::after{width:68%}#revieStarW3 [data-star^="3.5"]::after{width:70%}#revieStarW3 [data-star^="3.6"]::after{width:72%}#revieStarW3 [data-star^="3.7"]::after{width:74%}#revieStarW3 [data-star^="3.8"]::after{width:76%}#revieStarW3 [data-star^="3.9"]::after{width:78%}#revieStarW3 [data-star^="4"]::after{width:80%}#revieStarW3 [data-star^="4.1"]::after{width:82%}#revieStarW3 [data-star^="4.2"]::after{width:84%}#revieStarW3 [data-star^="4.3"]::after{width:86%}#revieStarW3 [data-star^="4.4"]::after{width:88%}#revieStarW3 [data-star^="4.5"]::after{width:90%}#revieStarW3 [data-star^="4.6"]::after{width:92%}#revieStarW3 [data-star^="4.7"]::after{width:94%}#revieStarW3 [data-star^="4.8"]::after{width:96%}#revieStarW3 [data-star^="4.9"]::after{width:98%}#revieStarW3 [data-star^="5"]::after{width:100%}
+  {% if section.settings.format == "5" or section.settings.format == "6"  or section.settings.format == "7" %} 
+  #leftRevie, #rightRevie{top: 3rem; opacity: .5;box-shadow: 0 2px 5px #000;}
+  #leftRevie{left: auto;right: 5rem;}
+  #rightRevie{right: 5px;}
+  {% endif %}
+  {% if section.settings.format == "6" or section.settings.format == "7" %}
+    .txtStar{flex-direction: column;gap: 0px;}
+    #revieListCarousel li.bgImg{aspect-ratio: 1;{% if section.settings.format == "7" %}border-radius: 50%;{% else %}border-radius: 20%;{% endif %}}
+    .carouselPre li .text-mys{color: {{ section.settings.text_color }};justify-content: flex-end;}
+  {% endif %}
+  {% if section.settings.format == "2" %}
+    .itemsC .contents p{gap: 8px;display: flex;flex-direction: column;align-items: center;text-align: center;}
+    .itemsC .textDet{height: auto;max-height: calc({{ section.settings.size_text | plus: 5 }}px * 8)}
+    .leftTxtDet{bottom: auto;margin-top: -{{ section.settings.size_text }}px;}
+    {% endif %}
+    .topT{padding: 10px 0;font-weight: 600;font-size: {{ section.settings.title_size }}px;display: flex;align-items: center;gap: 5px;color: {{ section.settings.title_color }};justify-content: {{ section.settings.title_pos }};}
+  </style> 
+  {% endif %}
+  {% schema %}
+  {
+    "name": "Carousel Revie",
+    "presets": [{
+      "name": "Carousel Revie (New)",
+      "category": "Store information"
+    }],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Reviews",
+        "info": "You can use: {star} to show ★★★★★ - {count} to show the number of reviews"
+      },{
+        "type": "select",
+        "id": "format",
+        "label": "Format",
+        "default": "2",
+        "options": [
+        {
+        "value": "1",
+          "label": {
+          "en": "Modern",
+          "es": "Moderno"
+          }
+        },
+        {
+          "value": "2",
+          "label": {
+          "en": "Cards carousel",
+          "es": "Carrusel de carts"
+          }
+        },
+        {
+          "value": "3",
+          "label": {
+          "en": "No images",
+          "es": "Sin imágenes"
+          }
+        },
+        {
+          "value": "4",
+          "label": {
+          "en": "Minimum image",
+          "es": "Imágen mínima"
+          }
+        },
+        {
+          "value": "5",
+          "label": {
+          "en": "Background image (New)",
+          "es": "Imágen Background (Nuevo)"
+          }
+        },
+        {
+          "value": "6",
+          "label": {
+          "en": "Gallery carousel (New)",
+          "es": "Galería carrusel (Nuevo)"
+          }
+        },
+        {
+          "value": "7",
+          "label": {
+          "en": "Gallery carousel circle (New)",
+          "es": "Galería carrusel círculo(Nuevo)"
+          }
+        }
+         ]
+        },
+        {
+		  "type": "color",
+		  "id": "title_color",
+		  "label": "Title color",
+		  "default": "#000000"
+		},
+		{
+		  "type": "range",
+		  "id": "title_size",
+		  "min": 16,
+		  "max": 80,
+		  "step": 1,
+		  "unit": "px",
+		  "label": "Title size",
+		  "default": 24
+		  },
+		{
+		  "type": "select",
+		  "id": "title_pos",
+		  "label": "Title position",
+		  "default": "flex-start",
+		  "options": [
+			{
+			"value": "flex-start",
+			  "label": {
+			  "en": "Left",
+			  "es": "Izquierda"
+			  }
+			},
+			{
+			  "value": "center",
+			  "label": {
+				"en": "Center",
+				"es": "Central"
+				}
+			},
+			{
+			  "value": "flex-end",
+			  "label": {
+				"en": "Right",
+				"es": "Derecha"
+				}
+			}
+		   ]
+		  },
+      {
+        "type": "header",
+        "content": "Star"
+      },
+      {
+        "type": "color",
+        "id": "star_color",
+        "label": "Star color",
+        "default": "#000000"
+      },
+      {
+        "type": "range",
+        "id": "size",
+        "min": 12,
+        "max": 35,
+        "step": 1,
+        "unit": "px",
+        "label": "Stars size",
+        "default": 15
+        },
+      {
+        "type": "header",
+        "content": "Texto"
+      },
+      {
+        "type": "color",
+        "id": "back_color",
+        "label":"Background color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label":"Text color",
+        "default": "#000000"
+      },
+      {
+        "type": "range",
+        "id": "size_text",
+        "min": 10,
+        "max": 25,
+        "step": 1,
+        "unit": "px",
+        "label": "Text size",
+        "default": 15
+          },
+      {
+        "type": "select",
+        "id": "name",
+        "label":"Customer name",
+        "default": "2",
+        "options": [
+        {
+        "value": "1",
+          "label": {
+          "en": "Normal",
+          "es": "Normal"
+          }
+        },
+        {
+          "value": "2",
+          "label": {
+          "en": "In a line",
+          "es": "En una línea"
+          }
+        },
+        {
+          "value": "3",
+          "label": {
+          "en": "No show",
+          "es": "No mostrar"
+          }
+        }
+         ]
+        },
+      {
+        "type": "header",
+        "content": "Reviews"
+      },
+      {
+        "type": "range",
+        "id": "max_reviews",
+        "min": 5,
+        "max": 20,
+        "step": 1,
+        "label": "Max reviews",
+        "default": 10
+          },
+      {
+        "type": "select",
+        "id": "image",
+        "label": "Photos",
+        "default": "1",
+        "options": [
+        {
+        "value": "1",
+          "label": {
+          "en": "Product",
+          "es": "Producto"
+          }
+        },
+        {
+          "value": "2",
+          "label": {
+          "en": "Reviews",
+          "es": "Reviews"
+          }
+        },
+        {
+          "value": "3",
+          "label": {
+          "en": "Product & Reviews",
+          "es": "Productos & Reviews"
+          }
+        }
+         ]
+        },
+      {
+        "type": "select",
+        "id": "from",
+        "label": "Reviews from",
+        "default": "1",
+        "options": [
+        {
+        "value": "1",
+          "label": {
+          "en": "Shop",
+          "es": "Tienda"
+          }
+        },
+        {
+          "value": "2",
+          "label": {
+          "en": "Product",
+          "es": "Producto"
+          }
+        }
+         ]
+        },
+      {
+        "type": "range",
+        "id": "width_elements",
+        "min": 3,
+        "max": 8,
+        "step": 1,
+        "label": "width elements",
+        "default": 4
+        },
+      {
+        "type": "range",
+        "id": "content_padding",
+        "min": 0,
+        "max": 80,
+        "step": 1,
+        "unit": "px",
+        "label": "Content padding",
+        "default": 22
+      },{
+        "type": "range",
+        "id": "max_width",
+        "min": 780,
+        "max": 2160,
+        "step": 60,
+        "unit": "px",
+        "label": "Max width",
+        "default": 900
+      }
+  
+    ]
+  } 
+  {% endschema %}

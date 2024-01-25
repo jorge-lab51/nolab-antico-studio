@@ -1,0 +1,553 @@
+<div class="loader">
+  <svg
+    version="1.1"
+    id="L9"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    viewBox="0 0 100 100"
+    enable-background="new 0 0 0 0"
+    xml:space="preserve"
+  >
+      <path fill="#a4847e" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+        <animateTransform
+           attributeName="transform"
+           attributeType="XML"
+           type="rotate"
+           dur="1s"
+           from="0 50 50"
+           to="360 50 50"
+           repeatCount="indefinite" />
+    </path>
+  </svg>
+  <style>
+    .loader {
+      text-align: center;
+    }
+    .loader svg {
+      width: 100px;
+      height: 100px;
+      margin: 20px;
+      display: inline-block;
+    }
+    .loader svg path {
+      fill: rgba(var(--inputs_border_color));
+    }
+    .made-with-love {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 10px;
+      font-family: arial;
+      color: #fff;
+    }
+    .made-with-love i {
+      font-style: normal;
+      color: #f50057;
+      font-size: 14px;
+      position: relative;
+      top: 2px;
+    }
+    .made-with-love a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .made-with-love a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</div>
+<div class="comunas pre-item" style="display: none;">
+  <h5>Dirección de envío</h5>
+  <div class="town-selector-modal">
+    <div class="town-selector-modal-content">
+      <p class="cart-attribute__field">
+        <label for="city">Región</label>
+        <div class="select">
+          <select class="select__select" id="select-city" name="[shipping_address][city]"></select>
+          {% render 'icon-caret' %}
+        </div>
+      </p>
+      <p class="cart-attribute__field">
+        <label for="town">Comuna</label>
+        <div class="select">
+          <select class="select__select" id="select-town" name="[shipping_address][province]"></select>
+          {% render 'icon-caret' %}
+        </div>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  var true_town = false;
+  // selector de regiones
+  var cities = {
+    AP: 'Arica y Parinacota',
+    TA: 'Tarapacá',
+    AN: 'Antofagasta',
+    AT: 'Atacama',
+    CO: 'Coquimbo',
+    VS: 'Valparaí­so',
+    RM: 'Región Metropolitana',
+    LI: "O'Higgins",
+    ML: 'Maule',
+    NB: 'Ñuble',
+    BI: 'Biobio',
+    AR: 'Araucanía',
+    LR: 'Los Rí­os',
+    LL: 'Los Lagos',
+    AI: 'Aysén',
+    MA: 'Magallanes',
+  };
+
+  // selector de comunas
+  var towns = (comunas = {
+    AN: [
+      'Antofagasta',
+      'Calama',
+      'María Elena',
+      'Mejillones',
+      'Ollagüe',
+      'San Pedro de Atacama',
+      'Sierra Gorda',
+      'Taltal',
+      'Tocopilla',
+    ],
+    AR: [
+      'Angol',
+      'Carahue',
+      'Cholchol',
+      'Collipulli',
+      'Cunco',
+      'Curacautín',
+      'Curarrehue',
+      'Ercilla',
+      'Freire',
+      'Galvarino',
+      'Gorbea',
+      'Lautaro',
+      'Loncoche',
+      'Lonquimay',
+      'Los Sauces',
+      'Lumaco',
+      'Melipeuco',
+      'Nueva Imperial',
+      'Padre las Casas',
+      'Perquenco',
+      'Pitrufquén',
+      'Pucón',
+      'Purén',
+      'Renaico',
+      'Saavedra',
+      'Temuco',
+      'Teodoro Schmidt',
+      'Toltén',
+      'Traiguén',
+      'Victoria',
+      'Vilcún',
+      'Villarrica',
+    ],
+    AP: ['Arica', 'Camarones', 'General Lagos', 'Putre'],
+    AT: [
+      'Alto del Carmen',
+      'Caldera',
+      'Chañaral',
+      'Copiapó',
+      'Diego de Almagro',
+      'Freirina',
+      'Huasco',
+      'Tierra Amarilla',
+      'Vallenar',
+    ],
+    AI: [
+      'Aisén',
+      'Chile Chico',
+      'Cisnes',
+      'Cochrane',
+      'Coihaique',
+      'Guaitecas',
+      'Lago Verde',
+      'O’Higgins',
+      'Río Ibáñez',
+      'Tortel',
+    ],
+    BI: [
+      'Alto Biobío',
+      'Antuco',
+      'Arauco',
+      'Cabrero',
+      'Cañete',
+      'Chiguayante',
+      'Concepción',
+      'Contulmo',
+      'Coronel',
+      'Curanilahue',
+      'Florida',
+      'Hualpén',
+      'Hualqui',
+      'Laja',
+      'Lebu',
+      'Los Álamos',
+      'Los Ángeles',
+      'Lota',
+      'Mulchén',
+      'Nacimiento',
+      'Negrete',
+      'Penco',
+      'Quilaco',
+      'Quilleco',
+      'San Pedro de la Paz',
+      'San Rosendo',
+      'Santa Bárbara',
+      'Santa Juana',
+      'Talcahuano',
+      'Tirúa',
+      'Tomé',
+      'Tucapel',
+      'Yumbel',
+    ],
+    CO: [
+      'Andacollo',
+      'Canela',
+      'Combarbalá',
+      'Coquimbo',
+      'Illapel',
+      'La Higuera',
+      'La Serena',
+      'Los Vilos',
+      'Monte Patria',
+      'Ovalle',
+      'Paihuano',
+      'Punitaqui',
+      'Río Hurtado',
+      'Salamanca',
+      'Vicuña',
+    ],
+    LL: [
+      'Ancud',
+      'Calbuco',
+      'Castro',
+      'Chaitén',
+      'Chonchi',
+      'Cochamó',
+      'Curaco de Vélez',
+      'Dalcahue',
+      'Fresia',
+      'Frutillar',
+      'Futaleufú',
+      'Hualaihué',
+      'Llanquihue',
+      'Los Muermos',
+      'Maullín',
+      'Osorno',
+      'Palena',
+      'Puerto Montt',
+      'Puerto Octay',
+      'Puerto Varas',
+      'Puqueldón',
+      'Purranque',
+      'Puyehue',
+      'Queilén',
+      'Quellón',
+      'Quemchi',
+      'Quinchao',
+      'Río Negro',
+      'San Juan de la Costa',
+      'San Pablo',
+    ],
+    LR: [
+      'Corral',
+      'Futrono',
+      'La Unión',
+      'Lago Ranco',
+      'Lanco',
+      'Los Lagos',
+      'Mariquina',
+      'Máfil',
+      'Paillaco',
+      'Panguipulli',
+      'Río Bueno',
+      'Valdivia',
+    ],
+    MA: [
+      'Antártica',
+      'Cabo de Hornos (Ex Navarino)',
+      'Laguna Blanca',
+      'Natales',
+      'Porvenir',
+      'Primavera',
+      'Punta Arenas',
+      'Río Verde',
+      'San Gregorio',
+      'Timaukel',
+      'Torres del Paine',
+    ],
+    ML: [
+      'Cauquenes',
+      'Chanco',
+      'Colbún',
+      'Constitución',
+      'Curepto',
+      'Curicó',
+      'Empedrado',
+      'Hualañé',
+      'Licantén',
+      'Linares',
+      'Longaví',
+      'Maule',
+      'Molina',
+      'Parral',
+      'Pelarco',
+      'Pelluhue',
+      'Pencahue',
+      'Rauco',
+      'Retiro',
+      'Romeral',
+      'Río Claro',
+      'Sagrada Familia',
+      'San Clemente',
+      'San Javier',
+      'San Rafael',
+      'Talca',
+      'Teno',
+      'Vichuquén',
+      'Villa Alegre',
+      'Yerbas Buenas',
+    ],
+    NB: [
+      'Bulnes',
+      'Chillán',
+      'Chillán Viejo',
+      'Cobquecura',
+      'Coelemu',
+      'Coihueco',
+      'El Carmen',
+      'Ninhue',
+      'Pemuco',
+      'Pinto',
+      'Portezuelo',
+      'Quillón',
+      'Quirihue',
+      'Ránquil',
+      'San Carlos',
+      'San Fabián',
+      'San Ignacio',
+      'San Nicolás',
+      'Treguaco',
+      'Yungay',
+      'Ñiquén',
+    ],
+    LI: [
+      'Chimbarongo',
+      'Chépica',
+      'Codegua',
+      'Coinco',
+      'Coltauco',
+      'Doñihue',
+      'Graneros',
+      'La Estrella',
+      'Las Cabras',
+      'Litueche',
+      'Lolol',
+      'Machalí',
+      'Malloa',
+      'Marchihue',
+      'Mostazal',
+      'Nancagua',
+      'Navidad',
+      'Olivar',
+      'Palmilla',
+      'Paredones',
+      'Peralillo',
+      'Peumo',
+      'Pichidegua',
+      'Pichilemu',
+      'Placilla',
+      'Pumanque',
+      'Quinta de Tilcoco',
+      'Rancagua',
+      'Rengo',
+      'Requínoa',
+      'San Fernando',
+      'San Vicente',
+      'Santa Cruz',
+    ],
+    RM: [
+      'Alhué',
+      'Buin',
+      'Calera de Tango',
+      'Cerrillos',
+      'Cerro Navia',
+      'Colina',
+      'Conchalí',
+      'Curacaví',
+      'El Bosque',
+      'El Monte',
+      'Estación Central',
+      'Huechuraba',
+      'Independencia',
+      'Isla de Maipo',
+      'La Cisterna',
+      'La Florida',
+      'La Granja',
+      'La Pintana',
+      'La Reina',
+      'Lampa',
+      'Las Condes',
+      'Lo Barnechea',
+      'Lo Espejo',
+      'Lo Prado',
+      'Macul',
+      'Maipú',
+      'María Pinto',
+      'Melipilla',
+      'Ñuñoa',
+      'Padre Hurtado',
+      'Paine',
+      'Pedro Aguirre Cerda',
+      'Peñaflor',
+      'Peñalolén',
+      'Pirque',
+      'Providencia',
+      'Pudahuel',
+      'Puente Alto',
+      'Quilicura',
+      'Quinta Normal',
+      'Recoleta',
+      'Renca',
+      'San Bernardo',
+      'San Joaquín',
+      'San José de Maipo',
+      'San Miguel',
+      'San Pedro',
+      'San Ramón',
+      'Santiago',
+      'Talagante',
+      'Tiltil',
+      'Vitacura',
+    ],
+    TA: ['Alto Hospicio', 'Camiña', 'Colchane', 'Huara', 'Iquique', 'Pica', 'Pozo Almonte'],
+    VS: [
+      'Algarrobo',
+      'Cabildo',
+      'Calera',
+      'Calle Larga',
+      'Cartagena',
+      'Casablanca',
+      'Catemu',
+      'Concón',
+      'El Quisco',
+      'El Tabo',
+      'Hijuelas',
+      'Isla de Pascua',
+      'Juan Fernández',
+      'La Cruz',
+      'La Ligua',
+      'Limache',
+      'Llaillay',
+      'Los Andes',
+      'Nogales',
+      'Olmué',
+      'Panquehue',
+      'Papudo',
+      'Petorca',
+      'Puchuncaví',
+      'Putaendo',
+      'Quillota',
+      'Quilpué',
+      'Quintero',
+      'Rinconada',
+      'San Antonio',
+      'San Esteban',
+      'San Felipe',
+      'Santa María',
+      'Santo Domingo',
+      'Valparaíso',
+      'Villa Alemana',
+      'Viña del Mar',
+      'Zapallar',
+    ],
+  });
+
+  window.addEventListener('load', function () {
+    document.querySelector('.loader').style.display = 'none';
+    document.querySelector('.comunas').style.display = 'block';
+
+    document.querySelector('form.cart').classList.add('payment');
+    console.log('load');
+    document.querySelector('#select-city').innerHTML = "<option value=''>Selecciona tu Región</option>";
+    document.querySelector('#select-town').innerHTML = "<option value=''>Selecciona tu Comuna</option>";
+
+    // populate cities
+    Object.keys(cities).forEach(function (item) {
+        document.querySelector('#select-city').innerHTML += "<option value='" + item + "' >" + cities[item] + '</option>';
+    });
+
+    document.querySelector('#select-city').addEventListener('change', function () {
+        if (document.querySelector('#select-city').selectedIndex) {
+            populateTowns(this.value);
+        } else {
+            document.querySelector('#select-town').innerHTML = "<option value=''>Selecciona tu Comuna</option>";
+        }
+    });
+
+    document.querySelector('#select-town, #select-city').addEventListener('change', function () {
+        if (document.querySelector('#select-city').selectedIndex) {
+            document.querySelector('form.cart').action =
+                '/cart?step=contact_information&checkout[shipping_address][country]=CL&checkout[shipping_address][province]=' +
+                document.querySelector('#select-city').value +
+                '&checkout[shipping_address][city]=' +
+                document.querySelector('#select-town').value;
+            document.querySelector('form.cart.payment').classList.remove('payment');
+            console.log('change');
+        } else {
+            document.querySelector('form.cart').action = '/cart';
+            document.querySelector('form.cart').classList.add('payment');
+            console.log('no change');
+        }
+    });
+
+    document.querySelector('input[type="submit"]').addEventListener('click', function (evt) {
+        true_town = document.querySelector('.' + evt.target.className).dataset.trueTown;
+    });
+
+    function closeTownSelector() {
+        document.querySelector('.town-selector-modal').style.display = 'none';
+    }
+
+    function showTownSelector() {
+        document.querySelector('.town-selector-modal').style.display = 'block';
+    }
+
+    function populateTowns(city_code) {
+        document.querySelector('#select-town').innerHTML = "";
+        towns[city_code].forEach(function (item) {
+            document.querySelector('#select-town').innerHTML += "<option value='" + item + "' >" + item + '</option>';
+        });
+    }
+
+    // Carrito
+    document.querySelector('.botones .not').addEventListener('click', function () {
+        document.querySelector('.comunas select').classList.remove('verde');
+        document.querySelector('.comunas select').classList.add('rojo');
+        document.querySelector('.comunas .alert').style.display = 'block';
+    });
+
+    document.querySelector('.comunas select').addEventListener('change', function () {
+        document.querySelector('.comunas select').classList.remove('rojo');
+        document.querySelector('.comunas select').classList.add('verde');
+        document.querySelector('.comunas .alert').style.display = 'none';
+        document.querySelector('.botones .not').style.display = 'none';
+    });
+
+    document.querySelector('.carrito').addEventListener('click', function (event) {
+        if (event.target.type === 'submit' && event.target.name === 'checkout') {
+            document.querySelector('#select-city, #select-town').classList.add('rojo');
+            document.querySelector('.alert').style.display = 'block';
+            return false;
+        }
+    });
+});
+</script>
+<style></style>

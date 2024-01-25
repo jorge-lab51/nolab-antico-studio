@@ -1,0 +1,567 @@
+<div class="drawer drawer--cart" is-open id="cotizacion-drawer" data-cart-drawer tabindex="0">
+  <div class="drawer__inner" data-scroll-lock-scrollable>
+    <header
+      class="drawer__head"
+      data-animation="{{ animation_name }}"
+      data-animation-duration="{{ animation_duration }}"
+      data-animation-delay="{{ animation_delay }}"
+      {%- assign animation_delay = animation_delay | plus: animation_delay_increment -%}
+    > 
+      <!-- <h3>Cotizador</h3> -->
+
+      <button type="button" class="drawer__close" data-cart-drawer-close aria-label="{{ 'general.accessibility.close' | t }} {{ 'cart.general.title' | t }}">
+        x
+      </button>
+    </header>
+
+    <div class="drawer__body" data-cart-drawer-body data-scroll-lock-scrollable>
+      {% comment %} Free shipping {% endcomment %}
+
+      <div class="drawer__items"
+        data-items-holder
+        style="--base-animation-delay: {{ animation_delay }}ms">
+
+        <ul id="products-list"></ul>
+
+        {%- liquid
+          comment
+            Incraese animation delay by using the cart item count limited up to 3
+          endcomment
+          assign animation_multiplier = cart_item_count | at_most: 3
+          assign animation_delay_after_items = animation_multiplier | times: animation_delay_increment
+          assign animation_delay = animation_delay | plus: animation_delay_after_items
+        -%}
+        </div>
+    </div>
+
+    <div class="drawer__foot cart__foot" data-foot-holder>
+      <collapsible-elements single="true">
+          <div class="cart__foot__inner"
+            data-animation="{{ animation_name }}"
+            data-animation-duration="{{ animation_duration }}"
+            data-animation-delay="{{ animation_delay }}">
+
+            <div class="cart__price__holder" data-cart-price-holder>
+              {%- liquid
+              assign animation_name = animation_name | default: 'cart-items-fade'
+              assign animation_duration = animation_duration | default: 500
+              assign animation_delay = animation_delay | default: 100
+              assign animation_delay_increment = animation_delay_increment | default: 50
+              assign subtotal = cart.total_price | plus: 0
+              assign cart_discount_size = cart.cart_level_discount_applications.size
+              assign original_subtotal = cart.original_total_price | plus: 0
+              assign currency_code_enable = settings.currency_code_enable
+
+              if currency_code_enable
+                assign original_subtotal_formatted = original_subtotal | money_with_currency
+              else
+                assign original_subtotal_formatted = original_subtotal | money
+              endif
+
+              if original_subtotal < subtotal or cart_discount_size == 0
+                assign cart_total_hidden = true
+              endif
+
+              if cart_discount_size == 0
+                assign cart_total_discount_hidden = true
+              endif
+            -%}
+
+
+
+            <div class="cart__total"
+              data-animation="{{ animation_name }}"
+              data-animation-duration="{{ animation_duration }}"
+              data-animation-delay="{{ animation_delay }}"
+              {%- assign animation_delay = animation_delay | plus: animation_delay_increment -%}
+            >
+              <span class="cart__total__label">Total</span>
+
+              <span class="cart__total__price cart__total__price--animated" id="total-price-display"></span>
+
+              <!-- <div class="cart__price__loader loader"><div class="loader-indeterminate"></div></div> -->
+            </div>
+            <div class="cart__buttons-all"
+            data-animation="{{ animation_name }}"
+            data-animation-duration="{{ animation_duration }}"
+            data-animation-delay="{{ animation_delay }}"
+            {%- assign animation_delay = animation_delay | plus: animation_delay_increment -%}>
+
+              <a href="#" class="send-cotizacion cart__view btn btn--primary btn--outline">COTIZAR</a>
+
+              <!-- <button class="clearall" onclick="clearAll(); return false;">{%- render 'icon-cancel' -%} Borrar todos los productos</button> -->
+        </div>
+          </div>
+
+        
+          </div>
+      </collapsible-elements>
+    </div>
+  </div>
+
+  <span class="underlay drawer__underlay" data-drawer-underlay data-drawer-cotizador-underlay></span>
+</div>
+
+
+
+<div class="modal-cotizar form-cotizar">
+  {% form 'contact' %}
+    <a onclick="quitarClase()" class="close">X</a>
+    <h2>Cotizar</h2>
+    <div class="text">
+      {{settings.text_form_cotizar}}
+    </div>
+    <div class="cotizar-exito">
+      <p>Cotización enviada con éxito</p>
+    </div>
+    {% if form.posted_successfully? %}
+      <script>
+          document.addEventListener('DOMContentLoaded', function() {
+          document.querySelector('.modal-cotizar').classList.add('show');
+          document.querySelector('.cotizar-exito').classList.add('show');
+          document.querySelector('.container-input-form ').classList.add('hide');
+          clearAll();
+        });
+      </script>
+    {% endif %}
+    {{ form.errors | default_errors }}
+    <div class="container-input-form">
+    <div class="cont-grid">
+      <input type="text" id="ContactFormName" name="contact[nombre]" placeholder="Nombre" autocapitalize="words" value="" required>
+      <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Email" autocorrect="off" autocapitalize="off" value="" required>
+    </div>
+    <div class="cont-grid">
+    <select id="regionSelector" name="contact[region]" onchange="cargarComunas()">
+      <option selected disabled>Selecciona tu región</option>
+      <option value="1">Región Metropolitana de Santiago</option>
+      <option value="2">Región de Arica y Parinacota</option>
+      <option value="3">Región de Tarapacá</option>
+      <option value="4">Región de Antofagasta</option>
+      <option value="5">Región de Atacama</option>
+      <option value="6">Región de Coquimbo</option>
+      <option value="7">Región de Valparaíso</option>
+      <option value="8">Región del Libertador General Bernardo O'Higgins</option>
+      <option value="9">Región del Maule</option>
+      <option value="10">Región de Ñuble</option>
+      <option value="11">Región del Biobío</option>
+      <option value="12">Región de La Araucanía</option>
+      <option value="13">Región de Los Ríos</option>
+      <option value="14">Región de Los Lagos</option>
+      <option value="15">Región de Aysén del General Carlos Ibáñez del Campo</option>
+      <option value="16">Región de Magallanes y de la Antártica Chilena</option>
+    </select>
+    <select id="comunaSelector" name="contact[comuna]">
+      <option selected disabled>Selecciona tu comuna</option>
+    </select>
+    </div>
+    <textarea rows="10" id="ContactFormMessage" name="contact[body]"></textarea>
+    <input type="submit" class="btn btn--primary" value="Enviar">
+  </div>
+  {% endform %}
+</div>
+
+<script>
+  function quitarClase() {
+      var miDiv = document.querySelector(".form-cotizar");
+       miDiv.classList.remove("show");
+  }
+  function cargarComunas() {
+      var regionSeleccionada = document.getElementById("regionSelector").value;
+      var comunaSelector = document.getElementById("comunaSelector");
+
+      comunaSelector.innerHTML = ""; // Limpiar las opciones anteriores en el selector de comunas
+
+      switch (regionSeleccionada) {
+          case "1":
+              agregarComuna("Alhué", comunaSelector);
+              agregarComuna("Buin", comunaSelector);
+              agregarComuna("Calera de Tango", comunaSelector);
+              agregarComuna("Cerrillos", comunaSelector);
+              agregarComuna("Cerro Navia", comunaSelector);
+              agregarComuna("Colina", comunaSelector);
+              agregarComuna("Conchalí", comunaSelector);
+              agregarComuna("Curacaví", comunaSelector);
+              agregarComuna("El Bosque", comunaSelector);
+              agregarComuna("El Monte", comunaSelector);
+              agregarComuna("Estación Central", comunaSelector);
+              agregarComuna("Huechuraba", comunaSelector);
+              agregarComuna("Independencia", comunaSelector);
+              agregarComuna("Isla de Maipo", comunaSelector);
+              agregarComuna("La Cisterna", comunaSelector);
+              agregarComuna("La Florida", comunaSelector);
+              agregarComuna("La Granja", comunaSelector);
+              agregarComuna("Lampa", comunaSelector);
+              agregarComuna("La Pintana", comunaSelector);
+              agregarComuna("La Reina", comunaSelector);
+              agregarComuna("Las Condes", comunaSelector);
+              agregarComuna("Lo Barnechea", comunaSelector);
+              agregarComuna("Lo Espejo", comunaSelector);
+              agregarComuna("Lo Prado", comunaSelector);
+              agregarComuna("Macul", comunaSelector);
+              agregarComuna("Maipú", comunaSelector);
+              agregarComuna("María Pinto", comunaSelector);
+              agregarComuna("Melipilla", comunaSelector);
+              agregarComuna("Ñuñoa", comunaSelector);
+              agregarComuna("Padre Hurtado", comunaSelector);
+              agregarComuna("Paine", comunaSelector);
+              agregarComuna("Pedro Aguirre Cerda", comunaSelector);
+              agregarComuna("Peñaflor", comunaSelector);
+              agregarComuna("Peñalolén", comunaSelector);
+              agregarComuna("Pirque", comunaSelector);
+              agregarComuna("Providencia", comunaSelector);
+              agregarComuna("Pudahuel", comunaSelector);
+              agregarComuna("Puente Alto", comunaSelector);
+              agregarComuna("Quilicura", comunaSelector);
+              agregarComuna("Quinta Normal", comunaSelector);
+              agregarComuna("Recoleta", comunaSelector);
+              agregarComuna("Renca", comunaSelector);
+              agregarComuna("San Bernardo", comunaSelector);
+              agregarComuna("San Joaquín", comunaSelector);
+              agregarComuna("San José de Maipo", comunaSelector);
+              agregarComuna("San Miguel", comunaSelector);
+              agregarComuna("San Pedro", comunaSelector);
+              agregarComuna("San Ramón", comunaSelector);
+              agregarComuna("Santiago", comunaSelector);
+              agregarComuna("Talagante", comunaSelector);
+              agregarComuna("TilTil", comunaSelector);
+              agregarComuna("Vitacura", comunaSelector);
+              // ... Agrega más comunas de la Región Metropolitana
+              break;
+          case "2":
+              agregarComuna("Arica", comunaSelector);
+              agregarComuna("Camarones", comunaSelector);
+              agregarComuna("General Lagos", comunaSelector);
+              agregarComuna("Putre", comunaSelector);
+              // ... Agrega más comunas de la Región de Arica y Parinacota
+              break;
+          case "3":
+              agregarComuna("Alto Hospicio", comunaSelector);
+              agregarComuna("Camiña", comunaSelector);
+              agregarComuna("Colchane", comunaSelector);
+              agregarComuna("Huara", comunaSelector);
+              agregarComuna("Iquique", comunaSelector);
+              agregarComuna("Pica", comunaSelector);
+              agregarComuna("Pozo Almonte", comunaSelector);
+              // ... Agrega más comunas de la Región de Tarapacá
+              break;
+          case "4":
+              agregarComuna("Antofagasta", comunaSelector);
+              agregarComuna("Calama", comunaSelector);
+              agregarComuna("María Elena", comunaSelector);
+              agregarComuna("Mejillones", comunaSelector);
+              agregarComuna("Ollagüe", comunaSelector);
+              agregarComuna("San Pedro de Atacama", comunaSelector);
+              agregarComuna("Sierra Gorda", comunaSelector);
+              agregarComuna("Taltal", comunaSelector);
+              agregarComuna("Tocopilla", comunaSelector);
+              break;
+          case "5":
+              agregarComuna("Alto del Carmen", comunaSelector);
+              agregarComuna("Caldera", comunaSelector);
+              agregarComuna("Chañaral", comunaSelector);
+              agregarComuna("Copiapó", comunaSelector);
+              agregarComuna("Diego de Almagro", comunaSelector);
+              agregarComuna("Freirina", comunaSelector);
+              agregarComuna("Huasco", comunaSelector);
+              agregarComuna("Tierra Amarilla", comunaSelector);
+              agregarComuna("Vallenar", comunaSelector);
+              break;
+          case "6":
+              agregarComuna("Andacollo", comunaSelector);
+              agregarComuna("Canela", comunaSelector);
+              agregarComuna("Combarbalá", comunaSelector);
+              agregarComuna("Coquimbo", comunaSelector);
+              agregarComuna("Illapel", comunaSelector);
+              agregarComuna("La Higuera", comunaSelector);
+              agregarComuna("La Serena", comunaSelector);
+              agregarComuna("Los Vilos", comunaSelector);
+              agregarComuna("Monte Patria", comunaSelector);
+              agregarComuna("Ovalle", comunaSelector);
+              agregarComuna("Paihuano", comunaSelector);
+              agregarComuna("Punitaqui", comunaSelector);
+              agregarComuna("Río Hurtado", comunaSelector);
+              agregarComuna("Salamanca", comunaSelector);
+              agregarComuna("Vicuña", comunaSelector);  
+              break;
+          case "7":
+              agregarComuna("Algarrobo", comunaSelector); 
+              agregarComuna("Cabildo", comunaSelector); 
+              agregarComuna("Calera", comunaSelector); 
+              agregarComuna("Calle Larga", comunaSelector); 
+              agregarComuna("Cartagena", comunaSelector); 
+              agregarComuna("Casablanca", comunaSelector); 
+              agregarComuna("Catemu", comunaSelector); 
+              agregarComuna("Concón", comunaSelector); 
+              agregarComuna("El Quisco", comunaSelector); 
+              agregarComuna("El Tabo", comunaSelector); 
+              agregarComuna("Hijuelas", comunaSelector); 
+              agregarComuna("Isla de Pascua", comunaSelector); 
+              agregarComuna("Juan Fernández", comunaSelector); 
+              agregarComuna("La Cruz", comunaSelector); 
+              agregarComuna("La Ligua", comunaSelector); 
+              agregarComuna("Limache", comunaSelector); 
+              agregarComuna("Llaillay", comunaSelector); 
+              agregarComuna("Los Andes", comunaSelector); 
+              agregarComuna("Olmué", comunaSelector); 
+              agregarComuna("Panquehue", comunaSelector); 
+              agregarComuna("Papudo", comunaSelector); 
+              agregarComuna("Petorca", comunaSelector); 
+              agregarComuna("Puchuncaví", comunaSelector); 
+              agregarComuna("Putaendo", comunaSelector); 
+              agregarComuna("Quillota", comunaSelector); 
+              agregarComuna("Quilpué", comunaSelector); 
+              agregarComuna("Quintero", comunaSelector); 
+              agregarComuna("Rinconada", comunaSelector); 
+              agregarComuna("San Antonio", comunaSelector); 
+              agregarComuna("San Esteban", comunaSelector); 
+              agregarComuna("San Felipe", comunaSelector); 
+              agregarComuna("Santa María", comunaSelector); 
+              agregarComuna("Santo Domingo", comunaSelector); 
+              agregarComuna("Valparaíso", comunaSelector); 
+              agregarComuna("Villa Alemana", comunaSelector); 
+              agregarComuna("Viña del Mar", comunaSelector); 
+              agregarComuna("Zapallar", comunaSelector);    
+              break;  
+          case "8":
+              agregarComuna("Chépica", comunaSelector);  
+              agregarComuna("Chimbarongo", comunaSelector);  
+              agregarComuna("Codegua", comunaSelector);  
+              agregarComuna("Coínco", comunaSelector);  
+              agregarComuna("Coltauco", comunaSelector);  
+              agregarComuna("Doñihue", comunaSelector);  
+              agregarComuna("Graneros", comunaSelector);  
+              agregarComuna("La Estrella", comunaSelector);  
+              agregarComuna("Las Cabras", comunaSelector);  
+              agregarComuna("Litueche", comunaSelector);  
+              agregarComuna("Lolol", comunaSelector);  
+              agregarComuna("Machalí", comunaSelector);  
+              agregarComuna("Malloa", comunaSelector);  
+              agregarComuna("Marchihue", comunaSelector);  
+              agregarComuna("Mostazal", comunaSelector);  
+              agregarComuna("Nancagua", comunaSelector);  
+              agregarComuna("Navidad", comunaSelector);  
+              agregarComuna("Olivar", comunaSelector);  
+              agregarComuna("Palmilla", comunaSelector);  
+              agregarComuna("Paredones", comunaSelector);  
+              agregarComuna("Peralillo", comunaSelector);  
+              agregarComuna("Peumo", comunaSelector);  
+              agregarComuna("Pichidegua", comunaSelector);  
+              agregarComuna("Pichilemu", comunaSelector);  
+              agregarComuna("Placilla", comunaSelector);  
+              agregarComuna("Pumanque", comunaSelector);  
+              agregarComuna("Quinta de Tilcoco", comunaSelector);  
+              agregarComuna("Rancagua", comunaSelector);  
+              agregarComuna("Rengo", comunaSelector);  
+              agregarComuna("Requínoa", comunaSelector);  
+              agregarComuna("San Fernando", comunaSelector);  
+              agregarComuna("Santa Cruz", comunaSelector);  
+              agregarComuna("San Vicente", comunaSelector);  
+              break;  
+          case "9":
+              agregarComuna("Cauquenes", comunaSelector); 
+              agregarComuna("Chanco", comunaSelector); 
+              agregarComuna("Colbún", comunaSelector); 
+              agregarComuna("Constitución", comunaSelector); 
+              agregarComuna("Curepto", comunaSelector); 
+              agregarComuna("Curicó", comunaSelector); 
+              agregarComuna("Empedrado", comunaSelector); 
+              agregarComuna("Hualañé", comunaSelector); 
+              agregarComuna("Licantén", comunaSelector); 
+              agregarComuna("Linares", comunaSelector); 
+              agregarComuna("Longaví", comunaSelector); 
+              agregarComuna("Maule", comunaSelector); 
+              agregarComuna("Molina", comunaSelector); 
+              agregarComuna("Parral", comunaSelector); 
+              agregarComuna("Pelarco", comunaSelector); 
+              agregarComuna("Pelluhue", comunaSelector); 
+              agregarComuna("Pencahue", comunaSelector); 
+              agregarComuna("Rauco", comunaSelector); 
+              agregarComuna("Retiro", comunaSelector); 
+              agregarComuna("Río Claro", comunaSelector); 
+              agregarComuna("Romeral", comunaSelector); 
+              agregarComuna("Sagrada Familia", comunaSelector); 
+              agregarComuna("San Clemente", comunaSelector); 
+              agregarComuna("San Javier", comunaSelector); 
+              agregarComuna("San Rafael", comunaSelector); 
+              agregarComuna("Talca", comunaSelector); 
+              agregarComuna("Teno", comunaSelector); 
+              agregarComuna("Vichuquén", comunaSelector); 
+              agregarComuna("Villa Alegre", comunaSelector); 
+              agregarComuna("Yerbas Buenas", comunaSelector); 
+              break;
+          case "10":
+              agregarComuna("Bulnes", comunaSelector); 
+              agregarComuna("Chillán", comunaSelector); 
+              agregarComuna("Chillán Viejo", comunaSelector); 
+              agregarComuna("Cobquecura", comunaSelector); 
+              agregarComuna("Coelemu", comunaSelector); 
+              agregarComuna("Coihueco", comunaSelector); 
+              agregarComuna("El Carmen", comunaSelector); 
+              agregarComuna("Ninhue", comunaSelector); 
+              agregarComuna("Ñiquén", comunaSelector); 
+              agregarComuna("Pemuco", comunaSelector); 
+              agregarComuna("Pinto", comunaSelector); 
+              agregarComuna("Portezuelo", comunaSelector); 
+              agregarComuna("Quillón", comunaSelector); 
+              agregarComuna("Quirihue", comunaSelector); 
+              agregarComuna("Ránquil", comunaSelector); 
+              agregarComuna("San Carlos", comunaSelector); 
+              agregarComuna("San Fabián", comunaSelector); 
+              agregarComuna("San Ignacio", comunaSelector); 
+              agregarComuna("San Nicolás", comunaSelector); 
+              agregarComuna("Treguaco", comunaSelector); 
+              agregarComuna("Yungay", comunaSelector); 
+              break;
+          case "11":
+              agregarComuna("Alto Biobío", comunaSelector); 
+              agregarComuna("Antuco", comunaSelector); 
+              agregarComuna("Arauco", comunaSelector); 
+              agregarComuna("Cabrero", comunaSelector); 
+              agregarComuna("Cañete", comunaSelector); 
+              agregarComuna("Chiguayante", comunaSelector); 
+              agregarComuna("Concepción", comunaSelector); 
+              agregarComuna("Contulmo", comunaSelector); 
+              agregarComuna("Coronel", comunaSelector); 
+              agregarComuna("Curanilahue", comunaSelector); 
+              agregarComuna("Florida", comunaSelector); 
+              agregarComuna("Hualpén", comunaSelector); 
+              agregarComuna("Hualqui", comunaSelector); 
+              agregarComuna("Laja", comunaSelector); 
+              agregarComuna("Lebu", comunaSelector); 
+              agregarComuna("Los Alamos", comunaSelector); 
+              agregarComuna("Los Angeles", comunaSelector); 
+              agregarComuna("Lota", comunaSelector); 
+              agregarComuna("Mulchén", comunaSelector); 
+              agregarComuna("Nacimiento", comunaSelector); 
+              agregarComuna("Negrete", comunaSelector); 
+              agregarComuna("Penco", comunaSelector); 
+              agregarComuna("Quilaco", comunaSelector); 
+              agregarComuna("Quilleco", comunaSelector); 
+              agregarComuna("San Pedro de la Paz", comunaSelector); 
+              agregarComuna("San Rosendo", comunaSelector); 
+              agregarComuna("Santa Bárbara", comunaSelector); 
+              agregarComuna("Santa Juana", comunaSelector); 
+              agregarComuna("Talcahuano", comunaSelector); 
+              agregarComuna("Tirúa", comunaSelector); 
+              agregarComuna("Tomé", comunaSelector); 
+              agregarComuna("Tucapel", comunaSelector); 
+              agregarComuna("Yumbel", comunaSelector); 
+              break;
+          case "12":
+              agregarComuna("Angol", comunaSelector); 
+              agregarComuna("Carahue", comunaSelector); 
+              agregarComuna("Cholchol", comunaSelector); 
+              agregarComuna("Collipulli", comunaSelector); 
+              agregarComuna("Cunco", comunaSelector); 
+              agregarComuna("Curacautín", comunaSelector); 
+              agregarComuna("Curarrehue", comunaSelector); 
+              agregarComuna("Ercilla", comunaSelector); 
+              agregarComuna("Freire", comunaSelector); 
+              agregarComuna("Galvarino", comunaSelector); 
+              agregarComuna("Gorbea", comunaSelector); 
+              agregarComuna("Lautaro", comunaSelector); 
+              agregarComuna("Loncoche", comunaSelector); 
+              agregarComuna("Lonquimay", comunaSelector); 
+              agregarComuna("Los Sauces", comunaSelector); 
+              agregarComuna("Lumaco", comunaSelector); 
+              agregarComuna("Melipeuco", comunaSelector); 
+              agregarComuna("Nueva Imperial", comunaSelector); 
+              agregarComuna("Padre Las Casas", comunaSelector); 
+              agregarComuna("Perquenco", comunaSelector); 
+              agregarComuna("Pitrufquén", comunaSelector); 
+              agregarComuna("Pucón", comunaSelector); 
+              agregarComuna("Purén", comunaSelector); 
+              agregarComuna("Renaico", comunaSelector); 
+              agregarComuna("Saavedra", comunaSelector); 
+              agregarComuna("Temuco", comunaSelector); 
+              agregarComuna("Teodoro Schmidt", comunaSelector); 
+              agregarComuna("Toltén", comunaSelector); 
+              agregarComuna("Traiguén", comunaSelector); 
+              agregarComuna("Victoria", comunaSelector); 
+              agregarComuna("Vilcún", comunaSelector); 
+              agregarComuna("Villarrica", comunaSelector); 
+              break;
+          case "13":
+              agregarComuna("Corral", comunaSelector); 
+              agregarComuna("CorralFutrono", comunaSelector); 
+              agregarComuna("CorralLago Ranco", comunaSelector); 
+              agregarComuna("CorralLanco", comunaSelector); 
+              agregarComuna("CorralLa Unión", comunaSelector); 
+              agregarComuna("CorralLos Lagos", comunaSelector); 
+              agregarComuna("CorralMáfil", comunaSelector); 
+              agregarComuna("CorralMariquina", comunaSelector); 
+              agregarComuna("", comunaSelector); 
+              agregarComuna("CorralPanguipulli", comunaSelector); 
+              agregarComuna("CorralRío Bueno", comunaSelector); 
+              agregarComuna("CorralValdivia", comunaSelector); 
+              break;
+          case "14":
+              agregarComuna("Ancud", comunaSelector); 
+              agregarComuna("Calbuco", comunaSelector); 
+              agregarComuna("Castro", comunaSelector); 
+              agregarComuna("Chaitén", comunaSelector); 
+              agregarComuna("Chonchi", comunaSelector); 
+              agregarComuna("Cochamó", comunaSelector); 
+              agregarComuna("Curaco de Vélez", comunaSelector); 
+              agregarComuna("Dalcahue", comunaSelector); 
+              agregarComuna("Fresia", comunaSelector); 
+              agregarComuna("Frutillar", comunaSelector); 
+              agregarComuna("Futaleufú", comunaSelector); 
+              agregarComuna("Hualaihué", comunaSelector); 
+              agregarComuna("Llanquihue", comunaSelector); 
+              agregarComuna("Los Muermos", comunaSelector); 
+              agregarComuna("Maullín", comunaSelector); 
+              agregarComuna("Osorno", comunaSelector); 
+              agregarComuna("Palena", comunaSelector); 
+              agregarComuna("Puerto Montt", comunaSelector); 
+              agregarComuna("Puerto Octay", comunaSelector); 
+              agregarComuna("Puerto Varas", comunaSelector); 
+              agregarComuna("Puqueldón", comunaSelector); 
+              agregarComuna("Purranque", comunaSelector); 
+              agregarComuna("Puyehue", comunaSelector); 
+              agregarComuna("Queilén", comunaSelector); 
+              agregarComuna("Quellón", comunaSelector); 
+              agregarComuna("Quemchi", comunaSelector); 
+              agregarComuna("Quinchao", comunaSelector); 
+              agregarComuna("Río Negro", comunaSelector); 
+              agregarComuna("San Juan de la Costa", comunaSelector); 
+              agregarComuna("San Pablo", comunaSelector); 
+              break;
+          case "15":
+              agregarComuna("Aysén", comunaSelector); 
+              agregarComuna("Chile Chico", comunaSelector); 
+              agregarComuna("Cisnes", comunaSelector); 
+              agregarComuna("Cochrane", comunaSelector); 
+              agregarComuna("Coyhaique", comunaSelector); 
+              agregarComuna("Guaitecas", comunaSelector); 
+              agregarComuna("Lago Verde", comunaSelector); 
+              agregarComuna("O'Higgins", comunaSelector); 
+              agregarComuna("Río Ibáñez", comunaSelector); 
+              agregarComuna("Tortel", comunaSelector); 
+              break;
+          case "16":
+              agregarComuna("Antártica", comunaSelector); 
+              agregarComuna("Cabo de Hornos", comunaSelector); 
+              agregarComuna("Laguna Blanca", comunaSelector); 
+              agregarComuna("Natales", comunaSelector); 
+              agregarComuna("Porvenir", comunaSelector); 
+              agregarComuna("Primavera", comunaSelector); 
+              agregarComuna("Punta Arenas", comunaSelector); 
+              agregarComuna("Río Verde", comunaSelector); 
+              agregarComuna("San Gregorio", comunaSelector); 
+              agregarComuna("Timaukel", comunaSelector); 
+              agregarComuna("Torres del Paine", comunaSelector); 
+              break;
+          // Agrega más casos según las regiones
+          default:
+              break;
+      }
+  }
+
+  function agregarComuna(nombreComuna, selector) {
+      var option = document.createElement("option");
+      option.value = nombreComuna;
+      option.text = nombreComuna;
+      selector.add(option);
+  }
+</script>

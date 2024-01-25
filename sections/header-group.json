@@ -1,0 +1,77 @@
+{
+  "name": "t:sections.header-group.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "Preventa exclusiva: compra hoy y recibe en febrero;)",
+            "text_on_mobile": "Preventa exclusiva: compra hoy y recibe en febrero",
+            "text_size": 13,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "settings": {
+        "only_homepage": true,
+        "layout": "default",
+        "mobile_layout": "carousel",
+        "autorotate": true,
+        "autorotate_speed": 5,
+        "show_navigation": true,
+        "direction": "left",
+        "speed": 1.6,
+        "colors_text": "#1a1b18",
+        "colors_background": "#bec0b4",
+        "gradient_background": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/logo.png",
+        "mobile_logo": "shopify:\/\/shop_images\/logo.png",
+        "logo_height": 96,
+        "mobile_logo_height": 44,
+        "logo_position": "top-center",
+        "menu": "menu-principal",
+        "enable_dropdown_menu": true,
+        "show_line_separator": true,
+        "cart_icon": "cart",
+        "icon_weight": "1.1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_sticky_header": true,
+        "show_sticky_header_scroll_up": false,
+        "transparent_logo": "shopify:\/\/shop_images\/ANTICO-HOME-BLANCO-2_c16d6d26-1403-4e44-a926-ee521ef86eb9.png",
+        "mobile_transparent_logo": "shopify:\/\/shop_images\/ANTICO-HOME-BLANCO-2_c16d6d26-1403-4e44-a926-ee521ef86eb9.png",
+        "enable_transparent_header": false,
+        "enable_transparent_header_collection": false,
+        "enable_transparent_header_custom": "",
+        "show_transparent_header_border": false,
+        "transparent_text_color": "#ffffff",
+        "mobile_logo_position": "center",
+        "colors_text": "#282828",
+        "colors_border": "#d2d5d9",
+        "colors_background": "#f7f6f2",
+        "gradient_background": "",
+        "ba_color": "#90958a",
+        "ba_text_color": "#ffffff",
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

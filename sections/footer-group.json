@@ -1,0 +1,90 @@
+{
+  "name": "t:sections.footer-group.name",
+  "type": "footer",
+  "sections": {
+    "170111056389c47b8b": {
+      "type": "apps",
+      "blocks": {
+        "1a821398-6a3d-452c-bdde-72b67d0aed53": {
+          "type": "shopify:\/\/apps\/instafeed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "1a821398-6a3d-452c-bdde-72b67d0aed53"
+      ],
+      "custom_css": [],
+      "settings": {
+        "include_margins": true,
+        "show_divider": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "ad92d323-3c54-44a7-bf56-cc67fec1a5c2": {
+          "type": "text",
+          "settings": {
+            "heading": "CONTÁCTANOS",
+            "subtext": "<p>contacto@anticohome.cl<\/p>"
+          }
+        },
+        "footer-1": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Categorías",
+            "menu": "menu-principal"
+          }
+        },
+        "footer-0": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Ayuda",
+            "menu": "footer"
+          }
+        },
+        "8da44bf4-33f0-4c9f-b6a2-30d3d97a1683": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Políticas",
+            "menu": "pol-ticas"
+          }
+        }
+      },
+      "block_order": [
+        "ad92d323-3c54-44a7-bf56-cc67fec1a5c2",
+        "footer-1",
+        "footer-0",
+        "8da44bf4-33f0-4c9f-b6a2-30d3d97a1683"
+      ],
+      "settings": {
+        "show_divider": false,
+        "newsletter_enable": true,
+        "newsletter_heading": "Suscríbete a nuestro newsletter",
+        "newsletter_text": "",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "social_heading": "Síguenos en nuestras redes",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": false,
+        "show_policy": false,
+        "copyright_text": "",
+        "colors_text": "#5f635a",
+        "colors_heading": "#5f635a",
+        "colors_link": "#5f635a",
+        "colors_border": "#5f635a",
+        "colors_background": "#f7f6f2",
+        "gradient_background": ""
+      }
+    }
+  },
+  "order": [
+    "170111056389c47b8b",
+    "footer"
+  ]
+}

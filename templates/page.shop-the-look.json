@@ -1,0 +1,679 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "narrow": true,
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "524cc66e-c6e3-44a4-aec0-e63b060421ff": {
+      "type": "shop-the-look",
+      "blocks": {
+        "template--21621874065704__524cc66e-c6e3-44a4-aec0-e63b060421ff-product-1": {
+          "type": "product",
+          "settings": {
+            "product": "cordoba-globo-terraqueo-giratorio",
+            "color": "#f7f6f2",
+            "horizontal": 14,
+            "vertical": 22
+          }
+        },
+        "template--21621874065704__524cc66e-c6e3-44a4-aec0-e63b060421ff-product-3": {
+          "type": "product",
+          "settings": {
+            "product": "maipo-espejo-giratorio-de-mesa",
+            "color": "#f7f6f2",
+            "horizontal": 52,
+            "vertical": 62
+          }
+        },
+        "bd007922-e365-40f7-b5a5-721fbab2cedb": {
+          "type": "product",
+          "settings": {
+            "product": "chucao-figura-pajaro-resina",
+            "color": "#f7f6f2",
+            "horizontal": 24,
+            "vertical": 48
+          }
+        },
+        "559fdd15-66ee-4c4c-b4f1-eadea2336dd3": {
+          "type": "product",
+          "settings": {
+            "product": "dulcamara-manta-tejida-de-chenilla",
+            "color": "#f7f6f2",
+            "horizontal": 62,
+            "vertical": 76
+          }
+        }
+      },
+      "block_order": [
+        "template--21621874065704__524cc66e-c6e3-44a4-aec0-e63b060421ff-product-1",
+        "template--21621874065704__524cc66e-c6e3-44a4-aec0-e63b060421ff-product-3",
+        "bd007922-e365-40f7-b5a5-721fbab2cedb",
+        "559fdd15-66ee-4c4c-b4f1-eadea2336dd3"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/13_2246_2x_07e079b0-226a-4a9d-ae9a-1ed7021a5053.jpg",
+        "layout": "image_first",
+        "text_box_position": "top",
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "full_width": false,
+        "show_divider": false,
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "image_ratio": "adapt",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "b7a73a82-417c-4280-8d57-874bc30ec417": {
+      "type": "shop-the-look",
+      "blocks": {
+        "template--21621874065704__b7a73a82-417c-4280-8d57-874bc30ec417-product-1": {
+          "type": "product",
+          "settings": {
+            "product": "ushuaia-globo-terraqueo-giratorio",
+            "color": "#f7f6f2",
+            "horizontal": 51,
+            "vertical": 40
+          }
+        },
+        "0dbee24f-e6e9-4d58-a931-5252db445768": {
+          "type": "product",
+          "settings": {
+            "product": "conquill-marco-de-fotos",
+            "color": "#f7f6f2",
+            "horizontal": 23,
+            "vertical": 40
+          }
+        },
+        "template--21621874065704__b7a73a82-417c-4280-8d57-874bc30ec417-product-3": {
+          "type": "product",
+          "settings": {
+            "product": "vela-aromatica-de-soya-decorativa-vanilla",
+            "color": "#f7f6f2",
+            "horizontal": 63,
+            "vertical": 38
+          }
+        },
+        "b63742e9-33fd-4286-b516-f8d679dfb111": {
+          "type": "product",
+          "settings": {
+            "product": "curry-bandeja-madera-ovalada",
+            "color": "#f7f6f2",
+            "horizontal": 76,
+            "vertical": 46
+          }
+        },
+        "9a9888d1-7dde-4a6f-8e7d-79e2ce5e353d": {
+          "type": "product",
+          "settings": {
+            "product": "pasto-de-canarias",
+            "color": "#f7f6f2",
+            "horizontal": 68,
+            "vertical": 71
+          }
+        }
+      },
+      "block_order": [
+        "template--21621874065704__b7a73a82-417c-4280-8d57-874bc30ec417-product-1",
+        "0dbee24f-e6e9-4d58-a931-5252db445768",
+        "template--21621874065704__b7a73a82-417c-4280-8d57-874bc30ec417-product-3",
+        "b63742e9-33fd-4286-b516-f8d679dfb111",
+        "9a9888d1-7dde-4a6f-8e7d-79e2ce5e353d"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/12_2400_2x_8042f8ac-56c7-4026-806a-b9d820d9cb28.jpg",
+        "layout": "text_first",
+        "text_box_position": "top",
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "full_width": false,
+        "show_divider": false,
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "image_ratio": "adapt",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "48af1b62-7ee9-44ff-b5c7-f53793c7415b": {
+      "type": "shop-the-look",
+      "blocks": {
+        "template--21621874065704__48af1b62-7ee9-44ff-b5c7-f53793c7415b-product-1": {
+          "type": "product",
+          "settings": {
+            "product": "chagual-dispensador-de-jabon",
+            "color": "#f7f6f2",
+            "horizontal": 48,
+            "vertical": 70
+          }
+        },
+        "0985e891-48cd-4c1f-b307-9138df5aecb3": {
+          "type": "product",
+          "settings": {
+            "product": "chagual-jabonera",
+            "color": "#f7f6f2",
+            "horizontal": 17,
+            "vertical": 65
+          }
+        },
+        "template--21621874065704__48af1b62-7ee9-44ff-b5c7-f53793c7415b-product-3": {
+          "type": "product",
+          "settings": {
+            "product": "chagual-vaso",
+            "color": "#f7f6f2",
+            "horizontal": 59,
+            "vertical": 65
+          }
+        },
+        "7c67e5ed-107d-4896-8aa2-9cd1aeb606e7": {
+          "type": "product",
+          "settings": {
+            "product": "pampas-natural-blanca",
+            "color": "#f7f6f2",
+            "horizontal": 47,
+            "vertical": 19
+          }
+        }
+      },
+      "block_order": [
+        "template--21621874065704__48af1b62-7ee9-44ff-b5c7-f53793c7415b-product-1",
+        "0985e891-48cd-4c1f-b307-9138df5aecb3",
+        "template--21621874065704__48af1b62-7ee9-44ff-b5c7-f53793c7415b-product-3",
+        "7c67e5ed-107d-4896-8aa2-9cd1aeb606e7"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/06_2525_2x_7e689cbb-6f95-414b-9ba7-f333697c5bb9.jpg",
+        "layout": "image_first",
+        "text_box_position": "top",
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "full_width": false,
+        "show_divider": false,
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "image_ratio": "adapt",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ab340d9f-1453-4597-a54e-765ec69288d8": {
+      "type": "shop-the-look",
+      "blocks": {
+        "template--21621874065704__ab340d9f-1453-4597-a54e-765ec69288d8-product-1": {
+          "type": "product",
+          "settings": {
+            "product": "lauca-marco-de-fotos",
+            "color": "#f7f6f2",
+            "horizontal": 72,
+            "vertical": 40
+          }
+        },
+        "039515a1-760d-4b87-96e8-880d54b60571": {
+          "type": "product",
+          "settings": {
+            "product": "cordoba-globo-terraqueo-giratorio",
+            "color": "#f7f6f2",
+            "horizontal": 76,
+            "vertical": 10
+          }
+        },
+        "7478e6a5-eceb-4e2b-b676-ed42dc1abaa8": {
+          "type": "product",
+          "settings": {
+            "product": "ushuaia-globo-terraqueo-giratorio",
+            "color": "#f7f6f2",
+            "horizontal": 70,
+            "vertical": 56
+          }
+        },
+        "template--21621874065704__ab340d9f-1453-4597-a54e-765ec69288d8-product-2": {
+          "type": "product",
+          "settings": {
+            "product": "vela-aromatica-de-soya-decorativa-vanilla",
+            "color": "#f7f6f2",
+            "horizontal": 50,
+            "vertical": 57
+          }
+        },
+        "a39b6f13-cad1-4e5e-bac0-4a7189d6744c": {
+          "type": "product",
+          "settings": {
+            "product": "cappero-manta-tejida-de-chenilla",
+            "color": "#f7f6f2",
+            "horizontal": 23,
+            "vertical": 87
+          }
+        },
+        "20a20fcb-3643-4246-abf4-ee9802b768a2": {
+          "type": "product",
+          "settings": {
+            "product": "banqueta-huaso-alta-465-s",
+            "color": "#f7f6f2",
+            "horizontal": 49,
+            "vertical": 87
+          }
+        }
+      },
+      "block_order": [
+        "template--21621874065704__ab340d9f-1453-4597-a54e-765ec69288d8-product-1",
+        "039515a1-760d-4b87-96e8-880d54b60571",
+        "7478e6a5-eceb-4e2b-b676-ed42dc1abaa8",
+        "template--21621874065704__ab340d9f-1453-4597-a54e-765ec69288d8-product-2",
+        "a39b6f13-cad1-4e5e-bac0-4a7189d6744c",
+        "20a20fcb-3643-4246-abf4-ee9802b768a2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/06_2359_2x_e31bad51-b9dd-4e43-9755-479a670b11de.jpg",
+        "layout": "text_first",
+        "text_box_position": "top",
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "full_width": false,
+        "show_divider": false,
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "image_ratio": "adapt",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "c995e893-ef37-4172-b817-e2e56c74402a": {
+      "type": "shop-the-look",
+      "blocks": {
+        "template--21621874065704__c995e893-ef37-4172-b817-e2e56c74402a-product-1": {
+          "type": "product",
+          "settings": {
+            "product": "opuntia-jarron-ceramica",
+            "color": "#f7f6f2",
+            "horizontal": 82,
+            "vertical": 79
+          }
+        },
+        "277cf904-8c64-4e6d-b95f-94c0eaef4cd1": {
+          "type": "product",
+          "settings": {
+            "product": "pampas-blanca-natural",
+            "color": "#f7f6f2",
+            "horizontal": 81,
+            "vertical": 59
+          }
+        },
+        "4acb328b-59f9-4aac-acfb-adcaf4799ebb": {
+          "type": "product",
+          "settings": {
+            "product": "vela-aromatica-de-soya-decorativa-vanilla",
+            "color": "#f7f6f2",
+            "horizontal": 82,
+            "vertical": 86
+          }
+        },
+        "240f6e57-4692-4ff7-b567-178b579aff89": {
+          "type": "product",
+          "settings": {
+            "product": "cilantro-bandeja-madera-ovalada",
+            "color": "#f7f6f2",
+            "horizontal": 89,
+            "vertical": 93
+          }
+        },
+        "template--21621874065704__c995e893-ef37-4172-b817-e2e56c74402a-product-3": {
+          "type": "product",
+          "settings": {
+            "product": "mirlo-figura-pajaro",
+            "color": "#f7f6f2",
+            "horizontal": 69,
+            "vertical": 45
+          }
+        }
+      },
+      "block_order": [
+        "template--21621874065704__c995e893-ef37-4172-b817-e2e56c74402a-product-1",
+        "277cf904-8c64-4e6d-b95f-94c0eaef4cd1",
+        "4acb328b-59f9-4aac-acfb-adcaf4799ebb",
+        "240f6e57-4692-4ff7-b567-178b579aff89",
+        "template--21621874065704__c995e893-ef37-4172-b817-e2e56c74402a-product-3"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/26_2487_2x_a00b6796-87ec-4a31-af23-d2b57238ba8a.jpg",
+        "layout": "image_first",
+        "text_box_position": "top",
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "full_width": false,
+        "show_divider": false,
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "image_ratio": "adapt",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "51336e2e-b1db-4954-b6a8-9079e0beb8e0": {
+      "type": "shop-the-look",
+      "blocks": {
+        "template--21621874065704__51336e2e-b1db-4954-b6a8-9079e0beb8e0-product-1": {
+          "type": "product",
+          "settings": {
+            "product": "vela-aromatica-de-soya-decorativa-pitanga",
+            "color": "#f7f6f2",
+            "horizontal": 95,
+            "vertical": 76
+          }
+        },
+        "69499f0f-a330-44cb-8f2b-80b11eb43880": {
+          "type": "product",
+          "settings": {
+            "product": "valeriana-manta-de-puntos",
+            "color": "#f7f6f2",
+            "horizontal": 30,
+            "vertical": 76
+          }
+        },
+        "template--21621874065704__51336e2e-b1db-4954-b6a8-9079e0beb8e0-product-3": {
+          "type": "product",
+          "settings": {
+            "product": "lauca-marco-de-fotos",
+            "color": "#f7f6f2",
+            "horizontal": 42,
+            "vertical": 48
+          }
+        },
+        "1fab4240-0d3f-432d-a76d-0a078bdf06af": {
+          "type": "product",
+          "settings": {
+            "product": "lauca-marco-de-fotos",
+            "color": "#f7f6f2",
+            "horizontal": 77,
+            "vertical": 37
+          }
+        }
+      },
+      "block_order": [
+        "template--21621874065704__51336e2e-b1db-4954-b6a8-9079e0beb8e0-product-1",
+        "69499f0f-a330-44cb-8f2b-80b11eb43880",
+        "template--21621874065704__51336e2e-b1db-4954-b6a8-9079e0beb8e0-product-3",
+        "1fab4240-0d3f-432d-a76d-0a078bdf06af"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Banner_principal_movil.jpg",
+        "layout": "text_first",
+        "text_box_position": "top",
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "full_width": false,
+        "show_divider": false,
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "image_ratio": "adapt",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "36f86a00-13b3-48fb-b4c4-f97ba3c4ebf8": {
+      "type": "shop-the-look",
+      "blocks": {
+        "template--21621874065704__36f86a00-13b3-48fb-b4c4-f97ba3c4ebf8-product-1": {
+          "type": "product",
+          "settings": {
+            "product": "arrayan-dispensador-de-jabon",
+            "color": "#f7f6f2",
+            "horizontal": 78,
+            "vertical": 62
+          }
+        },
+        "c73d98ef-dcaa-4392-b939-93f5b68efe43": {
+          "type": "product",
+          "settings": {
+            "product": "arrayan-vaso",
+            "color": "#f7f6f2",
+            "horizontal": 89,
+            "vertical": 57
+          }
+        },
+        "b6bdc20a-5ecf-4cea-91d3-7a0bd3ea9b81": {
+          "type": "product",
+          "settings": {
+            "product": "arrayan-jabonera",
+            "color": "#f7f6f2",
+            "horizontal": 89,
+            "vertical": 69
+          }
+        },
+        "template--21621874065704__36f86a00-13b3-48fb-b4c4-f97ba3c4ebf8-product-3": {
+          "type": "product",
+          "settings": {
+            "product": "vela-aromatica-de-soya-decorativa-vanilla",
+            "color": "#f7f6f2",
+            "horizontal": 35,
+            "vertical": 57
+          }
+        },
+        "4bf5160b-5720-458d-8e32-9ee326d8926c": {
+          "type": "product",
+          "settings": {
+            "product": "curcuma-bandeja-madera-ovalada",
+            "color": "#f7f6f2",
+            "horizontal": 26,
+            "vertical": 62
+          }
+        },
+        "e8369e09-3845-43b3-b957-999a99d2eaa4": {
+          "type": "product",
+          "settings": {
+            "product": "eucaliptus-natural",
+            "color": "#f7f6f2",
+            "horizontal": 23,
+            "vertical": 41
+          }
+        }
+      },
+      "block_order": [
+        "template--21621874065704__36f86a00-13b3-48fb-b4c4-f97ba3c4ebf8-product-1",
+        "c73d98ef-dcaa-4392-b939-93f5b68efe43",
+        "b6bdc20a-5ecf-4cea-91d3-7a0bd3ea9b81",
+        "template--21621874065704__36f86a00-13b3-48fb-b4c4-f97ba3c4ebf8-product-3",
+        "4bf5160b-5720-458d-8e32-9ee326d8926c",
+        "e8369e09-3845-43b3-b957-999a99d2eaa4"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/01_2506_2x_f83f7bad-8f3d-4626-801c-68db25015cc2.jpg",
+        "layout": "image_first",
+        "text_box_position": "top",
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "full_width": false,
+        "show_divider": false,
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "image_ratio": "adapt",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "24bd3a3a-772d-4917-a798-2937c07dcf3e": {
+      "type": "shop-the-look",
+      "blocks": {
+        "template--21621874065704__24bd3a3a-772d-4917-a798-2937c07dcf3e-product-1": {
+          "type": "product",
+          "settings": {
+            "product": "tandil-globo-terraqueo-giratorio",
+            "color": "#f7f6f2",
+            "horizontal": 59,
+            "vertical": 37
+          }
+        },
+        "810036bd-bbaf-4dd7-be1e-c6616c7c7d7b": {
+          "type": "product",
+          "settings": {
+            "product": "conquill-marco-de-fotos",
+            "color": "#f7f6f2",
+            "horizontal": 59,
+            "vertical": 14
+          }
+        },
+        "eac67884-b53f-4734-bdc3-92ef6121a4b6": {
+          "type": "product",
+          "settings": {
+            "product": "salta-globo-terraqueo-giratorio",
+            "color": "#f7f6f2",
+            "horizontal": 82,
+            "vertical": 14
+          }
+        },
+        "367a70cc-e964-493a-9718-1f806202290d": {
+          "type": "product",
+          "settings": {
+            "product": "playa-arena-vibrante-cuadro",
+            "color": "#f7f6f2",
+            "horizontal": 69,
+            "vertical": 67
+          }
+        },
+        "be7bed03-0c23-42ec-89b7-bcef2dcfe98a": {
+          "type": "product",
+          "settings": {
+            "product": "salvia-manta-de-puntos",
+            "color": "#f7f6f2",
+            "horizontal": 27,
+            "vertical": 78
+          }
+        },
+        "22b390e8-904e-4708-8cb8-d4b2202a895c": {
+          "type": "product",
+          "settings": {
+            "product": "vela-aromatica-de-soya-decorativa-pitanga",
+            "color": "#f7f6f2",
+            "horizontal": 11,
+            "vertical": 69
+          }
+        }
+      },
+      "block_order": [
+        "template--21621874065704__24bd3a3a-772d-4917-a798-2937c07dcf3e-product-1",
+        "810036bd-bbaf-4dd7-be1e-c6616c7c7d7b",
+        "eac67884-b53f-4734-bdc3-92ef6121a4b6",
+        "367a70cc-e964-493a-9718-1f806202290d",
+        "be7bed03-0c23-42ec-89b7-bcef2dcfe98a",
+        "22b390e8-904e-4708-8cb8-d4b2202a895c"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Shop_the_look_1.jpg",
+        "layout": "image_first",
+        "text_box_position": "top",
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "full_width": false,
+        "show_divider": false,
+        "heading": "Shop the Look",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "image_ratio": "adapt",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "524cc66e-c6e3-44a4-aec0-e63b060421ff",
+    "b7a73a82-417c-4280-8d57-874bc30ec417",
+    "48af1b62-7ee9-44ff-b5c7-f53793c7415b",
+    "ab340d9f-1453-4597-a54e-765ec69288d8",
+    "c995e893-ef37-4172-b817-e2e56c74402a",
+    "51336e2e-b1db-4954-b6a8-9079e0beb8e0",
+    "36f86a00-13b3-48fb-b4c4-f97ba3c4ebf8",
+    "24bd3a3a-772d-4917-a798-2937c07dcf3e"
+  ]
+}
