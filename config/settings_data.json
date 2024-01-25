@@ -1,12 +1,5 @@
 {
   "current": {
-    "checkout_logo_image": "shopify:\/\/shop_images\/logo.png",
-    "checkout_logo_position": "center",
-    "checkout_logo_size": "large",
-    "checkout_body_background_color": "#f7f6f2",
-    "checkout_sidebar_background_color": "#f7f6f2",
-    "checkout_accent_color": "#1a1b18",
-    "checkout_button_color": "#90958a",
     "colors_solid_button_labels": "#f7f6f2",
     "colors_accent": "#90958a",
     "colors_background": "#f7f6f2",
@@ -77,6 +70,13 @@
     "social_instagram_link": "https:\/\/www.instagram.com\/anticohome\/",
     "favicon": "shopify:\/\/shop_images\/ANTICO-HOME-AZUL_28934108-db29-4204-a0b4-35e1b40987d0.png",
     "gift_card_logo_height": 70,
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_color": "#f7f6f2",
+    "checkout_sidebar_background_color": "#f7f6f2",
+    "checkout_accent_color": "#1a1b18",
+    "checkout_button_color": "#90958a",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -121,7 +121,14 @@
         "settings": {}
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "presets": {
     "Beauty": {

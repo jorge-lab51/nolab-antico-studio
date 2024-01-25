@@ -1,0 +1,258 @@
+{
+  "sections": {
+    "empty-space": {
+      "type": "empty-space",
+      "settings": {
+        "desktop_height": 36,
+        "mobile_height": 16
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h2",
+            "show_price": false,
+            "price_size": "medium"
+          }
+        },
+        "f526ed6d-55d2-4b61-b867-73ec631d9004": {
+          "type": "shopify:\/\/apps\/revie-reviews-por-whatsapp\/blocks\/app-block\/32a49769-cfbe-4f29-8b19-1ae20fdb2abe",
+          "settings": {
+            "star_color": "#000000",
+            "star_text_2": "reseñas",
+            "size": 25
+          }
+        },
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "price_size": "medium",
+            "show_badges": true,
+            "sale_badge_basis": "auto"
+          }
+        },
+        "3228118f-bc28-4f2b-be40-e93d29a76b93": {
+          "type": "inventory_status",
+          "settings": {
+            "inventory_threshold": 4,
+            "show_inventory_transfer": true,
+            "color_scheme": "accent-1"
+          }
+        },
+        "72474b39-1c8b-4aeb-a092-d9e8a90de154": {
+          "type": "cuotas",
+          "disabled": true,
+          "settings": {
+            "total_cuotas": "3",
+            "image": "shopify:\/\/shop_images\/venti.png",
+            "image_2": "shopify:\/\/shop_images\/mp.png"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "show_variant_labels": true,
+            "picker_type": "button",
+            "enable_color_swatches": true,
+            "swatches_source": "file",
+            "swatch_type": "round",
+            "enable_swatch_cross": true,
+            "enable_swatch_unavailable_click": false,
+            "size_chart": ""
+          }
+        },
+        "cdd61697-11eb-4d1d-8d75-d5439784d678": {
+          "type": "fam_section",
+          "settings": {
+            "fake_title": "Color"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "collapsible_tab-0": {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "none",
+            "heading": "Características técnicas",
+            "content": "<p>{{ product.metafields.custom.caracteristicas | metafield_tag }}<\/p>",
+            "page": "",
+            "custom_liquid": "",
+            "keep_open": false
+          }
+        },
+        "collapsible_tab-1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "none",
+            "heading": "despachos",
+            "content": "<p>Despacho a todo Chile a través de 99 minutos. Revisa nuestras <a href=\"\/pages\/despachos\" target=\"_blank\" title=\"Despachos\">políticas de despacho.<\/a><\/p>",
+            "page": "",
+            "custom_liquid": "",
+            "keep_open": false
+          }
+        },
+        "related_buttons": {
+          "type": "related_buttons",
+          "disabled": true,
+          "settings": {
+            "show_icons": false
+          }
+        },
+        "sticky_cart": {
+          "type": "sticky_cart",
+          "settings": {
+            "show_quantity_selector": false
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "f526ed6d-55d2-4b61-b867-73ec631d9004",
+        "vendor",
+        "price",
+        "3228118f-bc28-4f2b-be40-e93d29a76b93",
+        "72474b39-1c8b-4aeb-a092-d9e8a90de154",
+        "variant_picker",
+        "cdd61697-11eb-4d1d-8d75-d5439784d678",
+        "buy_buttons",
+        "description",
+        "collapsible_tab-0",
+        "collapsible_tab-1",
+        "related_buttons",
+        "sticky_cart"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "media_position": "left",
+        "media_size": "medium",
+        "gallery_layout": "thumbnail_slider",
+        "image_ratio": "square",
+        "show_thumbnails": true,
+        "hide_variants": true,
+        "enable_image_zoom": true,
+        "enable_video_looping": false,
+        "mobile_image_ratio": "adapt_first",
+        "show_mobile_thumbnails": true,
+        "title_modal_preventa": "Preventa exclusiva Antico Home",
+        "text_modal_preventa": "<p>Nuestros productos exclusivos están en camino y podrían ser tuyos en 5 a 7 semanas.  Realiza tu pedido ahora y te notificaremos por correo cuando estén listos para enviar.<\/p>",
+        "padding_top": 0,
+        "padding_bottom": 72
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_list_limit": 4,
+        "show_divider": false,
+        "heading": "Productos relacionados",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "4063ed3c-7374-47ea-a408-927c2a0c6d33": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "destacados",
+        "products_to_show": 4,
+        "show_view_all": true,
+        "show_divider": false,
+        "heading": "Te podría interesar",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "heading_tag": "h2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": false,
+        "secondary_image_max": 1,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "170239175700268eae": {
+      "type": "apps",
+      "blocks": {
+        "aa5a7e43-d138-4aba-99eb-2e1a985155ce": {
+          "type": "shopify:\/\/apps\/revie-reviews-por-whatsapp\/blocks\/app-block-2\/32a49769-cfbe-4f29-8b19-1ae20fdb2abe",
+          "settings": {
+            "title": "RESEÑAS",
+            "format": "1",
+            "max_width": 900,
+            "content_padding": 22,
+            "star_color": "#000000",
+            "show_comment": "No",
+            "max_count": 10,
+            "star_text": "Estrellas",
+            "subtitle": "OPINIONES",
+            "buyer": "Comprador verificado",
+            "based": "Basado en",
+            "opinions": "opiniones",
+            "no_reviews": "SIN OPINIONES",
+            "show_summary": "No"
+          }
+        }
+      },
+      "block_order": [
+        "aa5a7e43-d138-4aba-99eb-2e1a985155ce"
+      ],
+      "settings": {
+        "include_margins": true,
+        "show_divider": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "empty-space",
+    "main",
+    "product-recommendations",
+    "4063ed3c-7374-47ea-a408-927c2a0c6d33",
+    "170239175700268eae"
+  ]
+}

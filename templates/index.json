@@ -1,0 +1,842 @@
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Banner_principal.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/Banner_principal_movil.jpg",
+            "video": "",
+            "image_position": "center center",
+            "text_box_position": "middle-left",
+            "subheading": "Busca, compra y lleva",
+            "subheading_size": "h5",
+            "heading": "¡Aprovecha nuestros descuentos por lanzamiento!",
+            "heading_size": "h0",
+            "heading_tag": "h3",
+            "text": "Compra hoy y recibe en febrero!",
+            "text_size": "typeset2",
+            "button_label": "ver más",
+            "button_link": "shopify:\/\/collections\/destacados",
+            "button_size": "medium",
+            "button_style_secondary": false
+          }
+        },
+        "721be99f-9299-46a9-9e1e-993c57de93ae": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/slideshow.png",
+            "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/07a210a5331149c291c6b02effe76726.mp4",
+            "image_position": "center center",
+            "text_box_position": "middle-center",
+            "subheading": "",
+            "subheading_size": "h5",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "heading_tag": "h2",
+            "text": "Give customers details about the slide image or content on the template.",
+            "text_size": "typeset",
+            "button_label": "Button label",
+            "button_link": "",
+            "button_size": "medium",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "slide-0",
+        "721be99f-9299-46a9-9e1e-993c57de93ae"
+      ],
+      "settings": {
+        "slideshow_type": "legacy",
+        "text_alignment": "left",
+        "image_ratio": "adapt_first",
+        "autorotate": true,
+        "autorotate_speed": 5,
+        "full_width": true,
+        "image_behavior": "none",
+        "mobile_text_alignment": "left",
+        "mobile_image_ratio": "600px",
+        "show_text_below": false,
+        "colors_button_label": "#1a1b18",
+        "colors_button_background": "#ffffff",
+        "colors_text": "#ffffff",
+        "colors_background": "#ffffff",
+        "colors_overlay": "#1a1b18",
+        "colors_overlay_opacity": 12,
+        "colors_navigation_text": "#ffffff",
+        "colors_navigation_background": "#1a1b18",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "bdfe810a-3755-433f-98da-06bec3531db3": {
+      "type": "rich-text",
+      "blocks": {
+        "template--21291999854888__bdfe810a-3755-433f-98da-06bec3531db3-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>El 84% de las personas que son felices en sus casas son felices en la vida también<br\/>Según el Happiness Research Institute -que presenta informes a la ONU todos los años-, existe una relación directa entre el bienestar emocional de las personas y el espacio físico en el que se desenvuelven a diario.<\/p>",
+            "text_size": "typeset2",
+            "secondary_color": false,
+            "highlight_phrases": "El 84% de las personas que son felices en sus casas son felices en la vida también"
+          }
+        }
+      },
+      "block_order": [
+        "template--21291999854888__bdfe810a-3755-433f-98da-06bec3531db3-text-1"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "mobile_text_alignment": "center",
+        "horizontal_content": false,
+        "narrow": false,
+        "show_divider": false,
+        "use_custom_colors": false,
+        "colors_button_label": "#ffffff",
+        "colors_button_background": "#1a1b18",
+        "colors_text": "#212326",
+        "colors_background": "#ffffff",
+        "colors_highlight": "#ca775b",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "90c9ec97-b6d1-4782-bcb9-16f6489d385a": {
+      "type": "icon-section",
+      "blocks": {
+        "template--21291999854888__90c9ec97-b6d1-4782-bcb9-16f6489d385a-guarantee-1": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "silhouette",
+            "icon_size": "small",
+            "image": "shopify:\/\/shop_images\/Grupo_4559_2x_9670e8a6-e2bc-4a5e-a866-dbb70f417d88.png",
+            "custom_icon": "",
+            "title": "FORMAS",
+            "title_size": "h4",
+            "text": "<p>Optamos por formas curvas para crear ambientes acogedores, evitando las puntiagudas que generan incomodidad.<\/p>"
+          }
+        },
+        "template--21291999854888__90c9ec97-b6d1-4782-bcb9-16f6489d385a-guarantee-2": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "truck",
+            "icon_size": "medium",
+            "image": "shopify:\/\/shop_images\/Grupo_4561_2x_6c340bd5-8aa8-4ba3-b9e5-db40e51f173d.png",
+            "custom_icon": "",
+            "title": "COLORES",
+            "title_size": "h4",
+            "text": "<p>Utilizamos tonos verdes y azules para reducir el estrés, combinados con beige para fomentar la relajación, especialmente en dormitorios.<\/p>"
+          }
+        },
+        "801f3c6d-c14a-4038-b581-bfe08bd48e70": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "truck",
+            "icon_size": "small",
+            "image": "shopify:\/\/shop_images\/Grupo_4557_2x_80d79e26-deb4-4830-8165-e16652a76778.png",
+            "custom_icon": "",
+            "title": "AROMAS",
+            "title_size": "h4",
+            "text": "<p>Integramos aromas cítricos para la alegría y lavanda para la calma, reconociendo la influencia del olfato en las emociones.<\/p>"
+          }
+        },
+        "61e728f9-6ccb-47d6-8311-89d6c33d8810": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "truck",
+            "icon_size": "medium",
+            "image": "shopify:\/\/shop_images\/Grupo_4565_2x_f5a6837b-534e-4973-91f7-a2bf05a99cd5.png",
+            "custom_icon": "",
+            "title": "ILUMINACIÓN",
+            "title_size": "h4",
+            "text": "<p>Priorizamos la luz natural para mejorar la energía y reducir la tristeza, evitando la luz fría que afecta los ciclos de sueño.<br\/><\/p>"
+          }
+        },
+        "f9e06ee7-06db-4cb3-a660-5191c6baad2d": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "truck",
+            "icon_size": "small",
+            "image": "shopify:\/\/shop_images\/Grupo_4571_2x_2a203185-112f-423a-855f-291fc7887c6d.png",
+            "custom_icon": "",
+            "title": "SONIDOS",
+            "title_size": "h4",
+            "text": "<p>Incorporamos la música para brindar felicidad, mejorar la concentración y favorecer la relajación diaria.<\/p>"
+          }
+        },
+        "fd1bd234-3303-40ec-a445-dc3392d9660b": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "truck",
+            "icon_size": "small",
+            "image": "shopify:\/\/shop_images\/Grupo_4568_2x_8d6c0c8a-43bc-4fec-aaee-27b4aef1c416.png",
+            "custom_icon": "",
+            "title": "BIOFILIA",
+            "title_size": "h4",
+            "text": "<p>Traemos la naturaleza a nuestros diseños, con plantas que reducen el estrés y mejoran la salud física, emocional y cognitiva.<\/p>"
+          }
+        },
+        "c4390492-d8a6-4c18-9378-9dd90541fe36": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "truck",
+            "icon_size": "medium",
+            "image": "shopify:\/\/shop_images\/Grupo_4566_2x_0e63d130-6c2b-4e00-a689-27635bc97d40.png",
+            "custom_icon": "",
+            "title": "PERSONALIZACIÓN",
+            "title_size": "h4",
+            "text": "<p>Reconocemos que los espacios son extensiones de nuestras identidades, promoviendo la conexión personal para aumentar la felicidad y el bienestar emocional.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--21291999854888__90c9ec97-b6d1-4782-bcb9-16f6489d385a-guarantee-1",
+        "template--21291999854888__90c9ec97-b6d1-4782-bcb9-16f6489d385a-guarantee-2",
+        "801f3c6d-c14a-4038-b581-bfe08bd48e70",
+        "61e728f9-6ccb-47d6-8311-89d6c33d8810",
+        "f9e06ee7-06db-4cb3-a660-5191c6baad2d",
+        "fd1bd234-3303-40ec-a445-dc3392d9660b",
+        "c4390492-d8a6-4c18-9378-9dd90541fe36"
+      ],
+      "settings": {
+        "layout": "default",
+        "column_alignment": "center",
+        "horizontal_content": false,
+        "full_width": false,
+        "show_divider": false,
+        "heading": "",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "use_custom_colors": false,
+        "colors_icon": "#ffffff",
+        "colors_text": "#1a1b18",
+        "colors_background": "#ffffff",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image-with-text-0": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "¿Quiénes somos?",
+            "heading_size": "h2",
+            "heading_tag": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Somos artífices del bienestar a través del diseño.<br\/>Nos guía la firme convicción de que los espacios que habitamos tienen un impacto significativo en nuestra felicidad y productividad.<br\/><\/p>",
+            "text_size": "typeset",
+            "secondary_color": false
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Ver más",
+            "button_link": "shopify:\/\/pages\/quienes-somos",
+            "button_size": "medium",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/25_2301_2x_4f024fea-d16a-4c1d-a5d9-c7f4c18b266a.jpg",
+        "image_position": "center center",
+        "layout": "image_first",
+        "text_box_position": "middle",
+        "text_alignment": "left",
+        "image_ratio": "500px",
+        "enlarge_content": false,
+        "full_width": false,
+        "show_divider": false,
+        "image_behavior": "none",
+        "mobile_layout": "image_first",
+        "mobile_text_alignment": "left",
+        "mobile_image_ratio": "250px",
+        "enable_video_looping": false,
+        "video_url": "",
+        "use_custom_colors": true,
+        "colors_button_label": "#ffffff",
+        "colors_button_background": "#90958a",
+        "colors_text": "#5f635a",
+        "colors_background": "#f7f6f2",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "gallery": {
+      "type": "gallery",
+      "blocks": {
+        "image-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Banner_Living.jpg",
+            "image_position": "bottom center",
+            "subheading": "LIVING",
+            "subheading_size": "h4",
+            "heading": "",
+            "heading_size": "h3",
+            "link": "shopify:\/\/collections\/living-dormitorio",
+            "text_box_position": "bottom-center"
+          }
+        },
+        "image-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/02_2209_2x_d3a1479d-ecbc-400a-a88c-2b899f410df8.jpg",
+            "image_position": "center center",
+            "subheading": "BAÑO",
+            "subheading_size": "h4",
+            "heading": "",
+            "heading_size": "h2",
+            "link": "shopify:\/\/collections\/bano",
+            "text_box_position": "bottom-center"
+          }
+        },
+        "image-3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Banner_Dormitorio.png",
+            "image_position": "center center",
+            "subheading": "DORMITORIO",
+            "subheading_size": "h4",
+            "heading": "",
+            "heading_size": "h3",
+            "link": "shopify:\/\/collections\/living-dormitorio",
+            "text_box_position": "bottom-center"
+          }
+        },
+        "image-4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Banner_terraza.jpg",
+            "image_position": "center center",
+            "subheading": "TERRAZA",
+            "subheading_size": "h4",
+            "heading": "",
+            "heading_size": "h3",
+            "link": "shopify:\/\/collections\/terraza",
+            "text_box_position": "bottom-center"
+          }
+        },
+        "852073c9-59c9-4dfd-b69f-cc86b88736a6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Banner_Home_office.png",
+            "image_position": "center center",
+            "subheading": "HOME OFFICE",
+            "subheading_size": "h4",
+            "heading": "",
+            "heading_size": "h3",
+            "link": "shopify:\/\/collections\/home-office",
+            "text_box_position": "bottom-center"
+          }
+        }
+      },
+      "block_order": [
+        "image-0",
+        "image-1",
+        "image-3",
+        "image-4",
+        "852073c9-59c9-4dfd-b69f-cc86b88736a6"
+      ],
+      "settings": {
+        "per_row": 5,
+        "spacing_images": 10,
+        "image_height": 390,
+        "apply_overlay": true,
+        "full_width": true,
+        "show_divider": false,
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "mobile_image_height": 230,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "mas-destacados",
+        "products_to_show": 4,
+        "show_view_all": true,
+        "show_divider": false,
+        "heading": "Productos destacados",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "heading_tag": "h1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": true,
+        "secondary_image_max": 1,
+        "show_vendor": false,
+        "show_rating": true,
+        "show_quick_buy": false,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "b72f09b5-0ef0-40d7-ac15-cc28b7895564": {
+      "type": "slideshow",
+      "blocks": {
+        "template--21291999854888__b72f09b5-0ef0-40d7-ac15-cc28b7895564-image-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Banner_Wish_List_2.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/Banner_Wish_List_movil.jpg",
+            "video": "",
+            "image_position": "center center",
+            "text_box_position": "middle-center",
+            "subheading": "",
+            "subheading_size": "h5",
+            "heading": "Wishlist de Ana",
+            "heading_size": "h2",
+            "heading_tag": "h2",
+            "text": "¿Qué elementos no pueden faltar en la decoración de tu hogar?",
+            "text_size": "typeset",
+            "button_label": "ver más",
+            "button_link": "shopify:\/\/collections\/wish-list-ana",
+            "button_size": "medium",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "template--21291999854888__b72f09b5-0ef0-40d7-ac15-cc28b7895564-image-1"
+      ],
+      "settings": {
+        "slideshow_type": "legacy",
+        "text_alignment": "center",
+        "image_ratio": "adapt_first",
+        "autorotate": false,
+        "autorotate_speed": 5,
+        "full_width": false,
+        "image_behavior": "none",
+        "mobile_text_alignment": "left",
+        "mobile_image_ratio": "300px",
+        "show_text_below": false,
+        "colors_button_label": "#000000",
+        "colors_button_background": "#ffffff",
+        "colors_text": "#ffffff",
+        "colors_background": "#1a1b18",
+        "colors_overlay": "#1a1b18",
+        "colors_overlay_opacity": 12,
+        "colors_navigation_text": "#000000",
+        "colors_navigation_background": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "shop-the-look": {
+      "type": "shop-the-look",
+      "blocks": {
+        "product-0": {
+          "type": "product",
+          "settings": {
+            "product": "difusor-ambiental-con-varilla-be-wood",
+            "color": "#f3f3f3",
+            "horizontal": 62,
+            "vertical": 64
+          }
+        },
+        "5f6226a7-d1ad-4221-8628-9f47fe960bd5": {
+          "type": "product",
+          "settings": {
+            "product": "vela-aromatica-de-soya-decorativa-pitanga",
+            "color": "#f3f3f3",
+            "horizontal": 82,
+            "vertical": 68
+          }
+        }
+      },
+      "block_order": [
+        "product-0",
+        "5f6226a7-d1ad-4221-8628-9f47fe960bd5"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/04_2215_2x_de9b43f3-b708-49d7-91de-b3fe5d2cd824.jpg",
+        "layout": "image_first",
+        "text_box_position": "middle",
+        "text_alignment": "center",
+        "mobile_text_alignment": "left",
+        "full_width": true,
+        "show_divider": false,
+        "heading": "Shop the look",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "image_ratio": "portrait",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image-comparison": {
+      "type": "image-comparison",
+      "blocks": {
+        "look-0": {
+          "type": "look",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Banner_antes.jpg",
+            "title": "",
+            "title_size": "small",
+            "title_position": "start"
+          }
+        },
+        "look-1": {
+          "type": "look",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Banner_despues.jpg",
+            "title": "",
+            "title_size": "small",
+            "title_position": "start"
+          }
+        }
+      },
+      "block_order": [
+        "look-0",
+        "look-1"
+      ],
+      "settings": {
+        "layout": "horizontal",
+        "image_ratio": "adapt",
+        "mobile_image_ratio": "adapt",
+        "full_width": false,
+        "show_divider": false,
+        "heading": "Antes y después",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "colors_line": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "371cf312-d75e-4d5a-b00a-d9d297b7d750": {
+      "type": "featured-blog",
+      "blocks": {
+        "template--21291999854888__371cf312-d75e-4d5a-b00a-d9d297b7d750-title-1": {
+          "type": "title",
+          "settings": {
+            "show_date": true,
+            "show_author": true,
+            "show_comment_count": false
+          }
+        },
+        "template--21291999854888__371cf312-d75e-4d5a-b00a-d9d297b7d750-summary-1": {
+          "type": "summary",
+          "settings": {}
+        },
+        "template--21291999854888__371cf312-d75e-4d5a-b00a-d9d297b7d750-read_more-1": {
+          "type": "read_more",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "template--21291999854888__371cf312-d75e-4d5a-b00a-d9d297b7d750-title-1",
+        "template--21291999854888__371cf312-d75e-4d5a-b00a-d9d297b7d750-summary-1",
+        "template--21291999854888__371cf312-d75e-4d5a-b00a-d9d297b7d750-read_more-1"
+      ],
+      "settings": {
+        "blog": "blog",
+        "post_limit": 2,
+        "show_view_all": true,
+        "show_divider": false,
+        "heading": "Blog post",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "heading_tag": "h2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_image": true,
+        "image_ratio": "landscape",
+        "image_position": "center center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "69ec9206-495b-4cb2-bc7e-2ca9ee92c8fc": {
+      "type": "video-hero",
+      "blocks": {
+        "template--21291999854888__69ec9206-495b-4cb2-bc7e-2ca9ee92c8fc-heading-1": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Video hero",
+            "heading_size": "h1",
+            "heading_tag": "h2"
+          }
+        },
+        "template--21291999854888__69ec9206-495b-4cb2-bc7e-2ca9ee92c8fc-button-1": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_size": "medium",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "template--21291999854888__69ec9206-495b-4cb2-bc7e-2ca9ee92c8fc-heading-1",
+        "template--21291999854888__69ec9206-495b-4cb2-bc7e-2ca9ee92c8fc-button-1"
+      ],
+      "settings": {
+        "video": "shopify:\/\/files\/videos\/parte-1_Wrt2OJjk.mov",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "text_box_position": "middle-center",
+        "text_alignment": "center",
+        "image_ratio": "450px",
+        "show_text_box": false,
+        "full_width": true,
+        "show_divider": false,
+        "mobile_text_alignment": "center",
+        "mobile_image_ratio": "auto",
+        "show_text_below": true,
+        "colors_button_label": "#1a1b18",
+        "colors_button_background": "#ffffff",
+        "colors_text": "#ffffff",
+        "colors_overlay": "#000000",
+        "colors_overlay_opacity": 0,
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "guarantees": {
+      "type": "guarantees",
+      "blocks": {
+        "guarantee-0": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "package",
+            "icon_size": "small",
+            "custom_icon": "",
+            "title": "Calidad garantizada",
+            "title_size": "h4",
+            "text": ""
+          }
+        },
+        "guarantee-2": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "return",
+            "icon_size": "small",
+            "custom_icon": "",
+            "title": "Cambios y devoluciones",
+            "title_size": "h4",
+            "text": ""
+          }
+        },
+        "guarantee-3": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "shield",
+            "icon_size": "small",
+            "custom_icon": "",
+            "title": "Compra segura",
+            "title_size": "h4",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "guarantee-0",
+        "guarantee-2",
+        "guarantee-3"
+      ],
+      "settings": {
+        "layout": "default",
+        "column_alignment": "center",
+        "horizontal_content": false,
+        "full_width": true,
+        "show_divider": false,
+        "heading": "",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "use_custom_colors": true,
+        "colors_icon": "#90958a",
+        "colors_text": "#ffffff",
+        "colors_background": "#90958a",
+        "gradient_background": "",
+        "padding_top": 52,
+        "padding_bottom": 60
+      }
+    },
+    "1699278778165e89bb": {
+      "type": "apps",
+      "blocks": {
+        "1f1d067b-c3d0-4f85-9e9e-a2739f4fbc93": {
+          "type": "shopify:\/\/apps\/instafeed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "alignment": "center",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "1f1d067b-c3d0-4f85-9e9e-a2739f4fbc93"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "show_divider": false,
+        "padding_top": 0,
+        "padding_bottom": 56
+      }
+    },
+    "debcc34d-d132-4f29-80e7-26ad0cd3d3cd": {
+      "type": "servicios",
+      "blocks": {
+        "a37375b4-547b-4454-a754-515682213435": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/182437.jpg",
+            "title": "Servicio plus",
+            "link": ""
+          }
+        },
+        "71ac5bb2-6b35-45e9-b75b-da81701ef11f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/001IGN004-00044-2.jpg",
+            "title": "Servicio express",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "a37375b4-547b-4454-a754-515682213435",
+        "71ac5bb2-6b35-45e9-b75b-da81701ef11f"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Nuestros servicios",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "7be04cae-761a-455e-b63c-5f3243a60c86": {
+      "type": "ambientes",
+      "blocks": {
+        "46c4ac98-64d4-4416-989c-765766fc5b1f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/wqe32e32.jpg",
+            "title": "Ambiente 1",
+            "link": ""
+          }
+        },
+        "d7291c61-dc6c-40a9-9a5b-3c6887b72b08": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6545.jpg",
+            "title": "Ambiente 2",
+            "link": ""
+          }
+        },
+        "c9f3e76c-2e68-4728-95f0-7d3b182e099c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/001REPISAD442001000-2_b916b695-e4b1-456f-ac9c-f8845985bd1b.jpg",
+            "title": "Ambiente 3",
+            "link": ""
+          }
+        },
+        "df4c943a-9633-408a-a8da-887a5a3a2ab1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/182437.jpg",
+            "title": "Ambiente 4",
+            "link": ""
+          }
+        },
+        "0d93eefb-095a-41e1-8291-008d405833b9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/001IGN004-00044-2.jpg",
+            "title": "Ambiente 5",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "46c4ac98-64d4-4416-989c-765766fc5b1f",
+        "d7291c61-dc6c-40a9-9a5b-3c6887b72b08",
+        "c9f3e76c-2e68-4728-95f0-7d3b182e099c",
+        "df4c943a-9633-408a-a8da-887a5a3a2ab1",
+        "0d93eefb-095a-41e1-8291-008d405833b9"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Ambientes",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "bdfe810a-3755-433f-98da-06bec3531db3",
+    "90c9ec97-b6d1-4782-bcb9-16f6489d385a",
+    "image-with-text-0",
+    "gallery",
+    "featured-collection",
+    "b72f09b5-0ef0-40d7-ac15-cc28b7895564",
+    "shop-the-look",
+    "image-comparison",
+    "371cf312-d75e-4d5a-b00a-d9d297b7d750",
+    "69ec9206-495b-4cb2-bc7e-2ca9ee92c8fc",
+    "guarantees",
+    "1699278778165e89bb",
+    "debcc34d-d132-4f29-80e7-26ad0cd3d3cd",
+    "7be04cae-761a-455e-b63c-5f3243a60c86"
+  ]
+}
